@@ -3,3 +3,28 @@
 @keyframes spin{to{transform:rotate(335deg)}}@keyframes pulseRing{50%{transform:scale(1.04);opacity:.6}}
 @media(max-width:900px){.auth-screen{grid-template-columns:1fr}.auth-art{min-height:340px;padding:55px 8%}.auth-title{font-size:70px;margin:22px 0 10px}.art-bottom{bottom:18px}.auth-panel{padding:45px 8%}.auth-card{margin:40px auto}.topbar{padding:0 5%}.topbar nav{gap:15px}.owner-tag{display:none}.section{padding-left:6%;padding-right:6%}.hero{grid-template-columns:1fr .7fr;min-height:570px}.hero h1{font-size:70px}.hero-visual{transform:scale(.8)}.org-section{gap:5%}}
 @media(max-width:650px){.side-brand{font-size:8px;padding:12px 7px}.topbar{height:auto;min-height:70px;flex-wrap:wrap;padding:12px 5%;gap:12px}.topbar nav{order:3;width:100%;justify-content:space-between;padding:9px 0 2px;border-top:1px solid #261b30}.nav-link{font-size:8px}.top-actions{margin-left:auto}.hero{display:block;padding-top:65px;padding-bottom:85px;min-height:690px}.hero h1{font-size:68px}.hero-visual{height:240px;margin-top:25px;transform:scale(.75)}.visual-number{right:15%;top:0}.hero-meta{margin-top:32px}.section-heading{display:block}.section-heading>p{margin-top:12px}.mode-grid{grid-template-columns:1fr}.profile-strip{padding-top:17px;padding-bottom:17px}.profile-copy strong{font-size:14px}.profile-strip .btn{font-size:8px;padding:9px}.notice-section{align-items:flex-start;flex-wrap:wrap}.notice-section>div:nth-child(2){min-width:70%}.notice-section .btn{margin-left:60px}.org-section{grid-template-columns:1fr;padding-top:75px;padding-bottom:75px}.org-visual{height:250px}.org-copy h2{font-size:58px}.org-monogram{font-size:120px}.footer-mid{display:none}.modal{padding:28px 20px}.detail-grid{grid-template-columns:1fr 1fr}.auth-art{min-height:300px}.auth-title{font-size:61px}.auth-panel{padding:35px 7%}.auth-card{margin:30px auto}.auth-footer{padding-bottom:12px}}
+
+/* Additional player tabs */
+.main-nav{gap:18px;flex-wrap:wrap;justify-content:center}
+.extra-section{padding-top:82px;padding-bottom:82px;border-top:1px solid #241a2d}
+.empty-state{padding:42px 28px;text-align:center;background:linear-gradient(145deg,#17111f,#0e0b13);border:1px solid #342441;border-radius:13px}
+.empty-icon{font-size:34px;margin-bottom:12px;filter:drop-shadow(0 0 15px #b36aff55)}
+.empty-state h3,.rule-card h3,.team-feature h3{font:900 26px 'Barlow Condensed';letter-spacing:.8px;margin:8px 0}
+.empty-state p,.rule-card p,.team-feature p,.contact-panel p{font-size:12px;line-height:1.8;color:#9b91a7;max-width:620px;margin:8px auto 0}
+.empty-state .btn{margin-top:18px}
+.team-feature{display:flex;align-items:center;gap:32px;padding:30px;background:linear-gradient(145deg,#17111f,#0e0b13);border:1px solid #342441;border-radius:13px}
+.team-feature p{margin:8px 0 18px}
+.team-emblem{flex:0 0 130px;height:130px;display:grid;place-items:center;border-radius:18px;background:radial-gradient(circle,#4b2268,#1b1026);font:900 78px 'Barlow Condensed';color:#fff;text-shadow:0 0 25px #c06aff}
+.team-emblem span{color:#d36dff}
+.rules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.rule-card{padding:22px;background:linear-gradient(145deg,#17111f,#0e0b13);border:1px solid #342441;border-radius:12px}
+.rule-card>b{font:900 13px 'Barlow Condensed';color:#bd8aff;letter-spacing:2px}
+.rule-card h3{font-size:22px}
+.rule-card p{margin:0}
+.contact-panel{display:flex;justify-content:space-between;align-items:center;gap:25px;padding:34px;background:linear-gradient(110deg,#241333,#120d19);border:1px solid #56336d;border-radius:14px}
+.contact-panel h2{font:900 clamp(35px,5vw,58px) 'Barlow Condensed';margin:10px 0}
+.contact-panel h2 span{color:#b36aff}
+.contact-panel p{margin:0;max-width:540px}
+@media(max-width:1100px){.main-nav{gap:12px}.nav-link{font-size:8px}}
+@media(max-width:900px){.rules-grid{grid-template-columns:repeat(2,1fr)}.contact-panel{align-items:flex-start;flex-direction:column}}
+@media(max-width:650px){.main-nav{order:3;width:100%;justify-content:flex-start;gap:0;overflow-x:auto;flex-wrap:nowrap;padding:10px 0 4px;border-top:1px solid #261b30}.main-nav .nav-link{white-space:nowrap;margin-right:20px}.team-feature{align-items:flex-start;flex-direction:column;gap:18px}.team-emblem{flex-basis:auto;width:100px;height:100px;font-size:60px}.rules-grid{grid-template-columns:1fr}.extra-section{padding-top:60px;padding-bottom:60px}.empty-state{padding:32px 18px}}
