@@ -20,20 +20,7 @@
   addEventListener('scroll',updateScroll,{passive:true}); updateScroll();
   backTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
 
-  // NEW: Live announcement ticker and secondary pro hero
-  const topbar=app.querySelector('.topbar');
-  if(topbar){
-    const ticker=document.createElement('div');
-    ticker.className='ca-ticker'; ticker.setAttribute('aria-label','Community update ticker');
-    ticker.innerHTML='<div class="ca-ticker-track"><span>CARLOATHLETES • INDIAN FREE FIRE COMMUNITY</span><span>OFFICIAL MATCH CONFIRMATION VIA @ITS.YUVI.BTW</span><span>TOURNAMENT SCHEDULES WILL BE ANNOUNCED HERE</span><span>CARLOATHLETES • INDIAN FREE FIRE COMMUNITY</span><span>OFFICIAL MATCH CONFIRMATION VIA @ITS.YUVI.BTW</span><span>TOURNAMENT SCHEDULES WILL BE ANNOUNCED HERE</span></div>';
-    topbar.insertAdjacentElement('afterend',ticker);
-  }
-  const hero=$('home');
-  if(hero){
-    const pro=document.createElement('section'); pro.className='ca-pro-hero';
-    pro.innerHTML='<div><div class="eyebrow">CARLOATHLETES TOURNAMENT DESK</div><h2>YOUR NEXT <span>CHALLENGE</span><br>STARTS HERE.</h2><p>Explore match formats, follow official announcements and contact the organizer for confirmed tournament details. No unverified slots, prizes or schedules are displayed.</p><div class="ca-pro-actions"><a class="btn btn-primary" href="#caUpcoming">EXPLORE TOURNAMENTS ↗</a><a class="btn btn-outline" href="https://www.instagram.com/its.yuvi.btw/" target="_blank" rel="noopener">WATCH / CONTACT ↗</a></div></div><div class="ca-countdown"><small>NEXT TOURNAMENT COUNTDOWN</small><strong>NOT ANNOUNCED</strong><small>Official date and time will appear after organizer confirmation.</small></div>';
-    hero.insertAdjacentElement('afterend',pro);
-  }
+  // Redundant ticker and duplicate hero removed for a cleaner, lighter page.
 
   // NEW: Additive tournament sections. Unknown event data stays clearly unannounced.
   const footer=app.querySelector('footer');
