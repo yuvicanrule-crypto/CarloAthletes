@@ -166,3 +166,63 @@ body::after{
   border-color:rgba(76,157,216,.36);
 }
 @media(prefers-reduced-motion:reduce){body{background-attachment:scroll}}
+
+
+/* VICE CITY NIGHTFALL — replaces the large C watermark with a neon coastal skyline */
+.current-c-watermark{display:none!important}
+html,body{background:#09051c}
+body{
+  background:
+    radial-gradient(ellipse at 50% 12%,rgba(255,104,174,.34),transparent 34%),
+    radial-gradient(ellipse at 82% 36%,rgba(0,219,255,.20),transparent 32%),
+    radial-gradient(ellipse at 12% 58%,rgba(170,57,255,.22),transparent 36%),
+    linear-gradient(180deg,#170b35 0%,#100b2c 40%,#08091d 100%);
+  background-attachment:fixed;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.84;
+  background:
+    linear-gradient(180deg,transparent 0 34%,rgba(8,8,29,.08) 48%,rgba(5,7,24,.82) 100%),
+    linear-gradient(90deg,transparent 0 3%,#10102f 3% 8%,transparent 8% 11%,#171039 11% 17%,transparent 17% 21%,#101b3b 21% 27%,transparent 27% 32%,#1b1040 32% 39%,transparent 39% 44%,#101a38 44% 51%,transparent 51% 56%,#1c1040 56% 63%,transparent 63% 68%,#101a39 68% 74%,transparent 74% 79%,#1b103c 79% 86%,transparent 86% 91%,#101936 91% 97%,transparent 97%),
+    repeating-linear-gradient(90deg,transparent 0 42px,rgba(255,112,193,.17) 43px 44px,transparent 45px 86px),
+    linear-gradient(180deg,transparent 0 40%,#0b102b 40% 100%);
+  background-size:100% 100%,100% 100%,100% 100%,100% 100%;
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.25),#000 38%,#000 100%);
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.58;
+  background:
+    radial-gradient(ellipse at 50% 31%,rgba(255,108,184,.24),transparent 28%),
+    radial-gradient(2px 2px at 14% 20%,#8df8ff 98%,transparent),
+    radial-gradient(2px 2px at 78% 24%,#ff9bd7 98%,transparent),
+    radial-gradient(2px 2px at 62% 48%,#75edff 98%,transparent),
+    linear-gradient(115deg,transparent 0 48%,rgba(255,91,183,.09) 49%,transparent 50% 100%);
+  background-size:100% 100%,260px 210px,320px 240px,380px 290px,100% 100%;
+}
+.topbar{background:rgba(13,7,34,.88);border-bottom-color:rgba(255,105,190,.34)}
+.ca-ticker{background:linear-gradient(90deg,#190d3b,#431447,#102b4c);border-color:rgba(255,112,193,.4)}
+.ca-pro-hero{background:radial-gradient(ellipse at 80% 45%,rgba(0,205,255,.18),transparent 48%),linear-gradient(120deg,rgba(31,10,52,.94),rgba(12,15,43,.94));border-color:rgba(255,105,190,.3)}
+.profile-strip,.mode-card,.empty-state,.team-feature,.rule-card,.ca-card,.ca-countdown,.ca-accordion,.ca-privacy{
+  background-color:rgba(14,10,38,.86);
+  border-color:rgba(110,190,255,.28);
+  backdrop-filter:blur(13px);
+}
+.btn-primary{background:linear-gradient(100deg,#ec3d9b,#7b4dff 58%,#19c9e8);box-shadow:0 8px 28px rgba(236,61,155,.3)}
+.btn-primary:hover{box-shadow:0 10px 35px rgba(0,213,255,.38),0 0 24px rgba(255,76,180,.3)}
+.hero{background:radial-gradient(ellipse at 75% 40%,rgba(255,83,174,.22),transparent 42%)}
+.hero h1 span,.section-heading h2 span,.org-copy h2 span,.ca-section-head h2 span{color:#ff8bc9;text-shadow:0 0 24px rgba(255,77,180,.62)}
+.visual-emblem{background:linear-gradient(150deg,#ff79bf,#6535a0 45%,#101a3c)}
+.visual-emblem strong{ text-shadow:0 8px 0 #8f287d,0 0 24px #ff9bd7}
+.org-visual{background:radial-gradient(circle,#3b1b68,#19133f 50%,#080c20 80%);border-color:rgba(255,112,193,.38)}
+.notice-section{background:linear-gradient(90deg,rgba(72,20,67,.88),rgba(14,35,66,.9));border-color:rgba(255,105,190,.32)}
+@media(prefers-reduced-motion:reduce){body{background-attachment:scroll}}
