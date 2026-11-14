@@ -428,3 +428,20 @@ body{
   background:linear-gradient(135deg,#525252 0%,#525252 49.8%,#151515 50.2%,#151515 100%) fixed!important;
   background-attachment:fixed!important;
 }
+
+
+/* PURE BLACK PAGE BACKGROUND — overrides previous split/light-grey backgrounds */
+html,body{
+  background:#000000!important;
+  background-color:#000000!important;
+}
+body{
+  background-image:none!important;
+  background-attachment:scroll!important;
+}
+body::before,body::after{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  opacity:0!important;
+}
