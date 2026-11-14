@@ -44,10 +44,16 @@
   <main id="app" class="hidden">
     <header class="topbar">
       <a class="brand-lockup compact" href="#home"><div class="brand-mark">C</div><div>CARLO<span>ATHLETES</span><small>INDIA ESPORTS</small></div></a>
-      <nav>
+      <nav class="main-nav">
         <a href="#home" class="nav-link active">HOME</a>
         <a href="#matches" class="nav-link">MATCHES</a>
-        <a href="#org" class="nav-link">MY ORG</a>
+        <a href="#leaderboard" class="nav-link">LEADERBOARD</a>
+        <a href="#announcements" class="nav-link">ANNOUNCEMENTS</a>
+        <a href="#teams" class="nav-link">TEAMS</a>
+        <a href="#profile" class="nav-link">MY PROFILE</a>
+        <a href="#history" class="nav-link">MATCH HISTORY</a>
+        <a href="#rules" class="nav-link">RULES</a>
+        <a href="#contact" class="nav-link">CONTACT</a>
       </nav>
       <div class="top-actions"><span class="owner-tag">OWNER — YUVI</span><button id="logoutBtn" class="btn btn-ghost small">LOG OUT</button></div>
     </header>
@@ -105,6 +111,47 @@
     <section id="org" class="org-section section reveal">
       <div class="org-visual"><div class="org-monogram">S<span>1</span></div><div class="org-stamp">COMMUNITY<br>• EST. SZN1 •</div></div>
       <div class="org-copy"><div class="eyebrow">THE PEOPLE BEHIND THE ARENA</div><h2>TO JOIN <span>US.</span></h2><div class="guild-label">MY GUILD</div><div class="guild-name">Szn1.esp!</div><p>Built by players. United by competition. Driven by victory. CarloAthletes represents the Szn1.esp! community and its passion for Free Fire esports.</p><div class="org-owner"><span>OWNER</span><strong>YUVI</strong></div><a class="btn btn-primary" href="https://www.instagram.com/its.yuvi.btw/" target="_blank" rel="noopener">CONNECT ON INSTAGRAM ↗</a></div>
+    </section>
+
+    <section id="leaderboard" class="extra-section section reveal">
+      <div class="section-heading"><div><div class="eyebrow">THE TOP COMPETITORS</div><h2>PLAYER <span>LEADERBOARD.</span></h2></div><p>Rankings will appear when verified match results are added.</p></div>
+      <div class="empty-state"><div class="empty-icon">🏆</div><h3>THE RACE STARTS HERE</h3><p>No verified leaderboard results yet. Rankings will be published after official matches.</p></div>
+    </section>
+
+    <section id="announcements" class="extra-section section reveal">
+      <div class="section-heading"><div><div class="eyebrow">LATEST FROM THE ORGANIZER</div><h2>ANNOUNCE<span>MENTS.</span></h2></div><p>Official CarloAthletes notices and important updates.</p></div>
+      <div class="empty-state"><div class="empty-icon">📢</div><h3>STAY TUNED</h3><p>Announcements will appear here once the shared Supabase connection is enabled.</p></div>
+    </section>
+
+    <section id="teams" class="extra-section section reveal">
+      <div class="section-heading"><div><div class="eyebrow">FIND YOUR SQUAD</div><h2>TEAMS &amp; <span>GUILDS.</span></h2></div><p>Community first. Teamwork always.</p></div>
+      <div class="team-feature"><div class="team-emblem">S<span>1</span></div><div><div class="eyebrow">FEATURED COMMUNITY</div><h3>Szn1.esp!</h3><p>CarloAthletes' community guild. Contact the organizer to ask about joining.</p><a class="btn btn-outline" href="https://www.instagram.com/its.yuvi.btw/" target="_blank" rel="noopener">ASK TO JOIN ↗</a></div></div>
+    </section>
+
+    <section id="profile" class="extra-section section reveal">
+      <div class="section-heading"><div><div class="eyebrow">YOUR PLAYER SPACE</div><h2>MY <span>PROFILE.</span></h2></div><p>Keep your Free Fire details up to date.</p></div>
+      <div class="empty-state"><div class="empty-icon">👤</div><h3>YOUR PLAYER DETAILS</h3><p>Update your display name, Free Fire IGN, UID and team name.</p><button class="btn btn-primary" id="profileTabEdit">EDIT MY PROFILE ↗</button></div>
+    </section>
+
+    <section id="history" class="extra-section section reveal">
+      <div class="section-heading"><div><div class="eyebrow">YOUR COMPETITIVE JOURNEY</div><h2>MATCH <span>HISTORY.</span></h2></div><p>Past appearances and verified results.</p></div>
+      <div class="empty-state"><div class="empty-icon">⌁</div><h3>NO MATCH RECORDS YET</h3><p>Your verified match history will appear here when match records are connected.</p></div>
+    </section>
+
+    <section id="rules" class="extra-section section reveal">
+      <div class="section-heading"><div><div class="eyebrow">PLAY FAIR. RESPECT EVERYONE.</div><h2>RULES &amp; <span>GUIDELINES.</span></h2></div><p>Read before contacting the organizer.</p></div>
+      <div class="rules-grid">
+        <article class="rule-card"><b>01</b><h3>RESPECT</h3><p>Respect players, teams and organizers. Harassment and abusive conduct are not welcome.</p></article>
+        <article class="rule-card"><b>02</b><h3>ACCURATE DETAILS</h3><p>Provide the correct Free Fire IGN, UID and team details when contacting the organizer.</p></article>
+        <article class="rule-card"><b>03</b><h3>CONFIRMATION</h3><p>Instagram DM is compulsory. A message or link click does not confirm a match place.</p></article>
+        <article class="rule-card"><b>04</b><h3>ROOM TIMING</h3><p>For BR, room details are scheduled for 4:25 PM IST and match start is 4:30 PM IST.</p></article>
+        <article class="rule-card"><b>05</b><h3>FAIR PLAY</h3><p>Follow the game rules and organizer instructions. Do not use cheats or exploit unfair advantages.</p></article>
+        <article class="rule-card"><b>06</b><h3>UPDATES</h3><p>Check official announcements and confirm schedule details with the organizer.</p></article>
+      </div>
+    </section>
+
+    <section id="contact" class="extra-section section reveal">
+      <div class="contact-panel"><div><div class="eyebrow">NEED HELP OR WANT TO JOIN?</div><h2>CONNECT WITH <span>YUVI.</span></h2><p>For match registration, guild enquiries and organizer confirmation, contact the official Instagram account.</p></div><a class="btn btn-primary" href="https://www.instagram.com/its.yuvi.btw/" target="_blank" rel="noopener">CONTACT @ITS.YUVI.BTW ↗</a></div>
     </section>
 
     <footer><div class="brand-lockup compact"><div class="brand-mark">C</div><div>CARLO<span>ATHLETES</span><small>INDIA ESPORTS</small></div></div><div class="footer-mid">COMPETE. DOMINATE. CONQUER.</div><div class="footer-right">MY ORG — Szn1.esp!</div><p class="disclaimer">Independent community project. Not affiliated with or endorsed by Garena or Free Fire. Demo interface; match availability is confirmed by the organizer.</p></footer>
