@@ -29,7 +29,7 @@
 @media(max-width:650px){.main-nav{order:3;width:100%;justify-content:flex-start;gap:0;overflow-x:auto;flex-wrap:nowrap;padding:10px 0 4px;border-top:1px solid #261b30}.main-nav .nav-link{white-space:nowrap;margin-right:20px}.team-feature{align-items:flex-start;flex-direction:column;gap:18px}.team-emblem{flex-basis:auto;width:100px;height:100px;font-size:60px}.rules-grid{grid-template-columns:1fr}.extra-section{padding-top:60px;padding-bottom:60px}.empty-state{padding:32px 18px}}
 /* Purple-white shine for every navigation option and action button */
 .btn,.nav-link,.text-button,.modal-close{position:relative;isolation:isolate;overflow:hidden}
-.btn::before,.nav-link::before,.text-button::before,.modal-close::before{content:"";position:absolute;top:-60%;left:-140%;width:65%;height:220%;background:linear-gradient(105deg,transparent 0%,#ffffff18 38%,#ffffffb8 50%,#d9b4ff55 62%,transparent 100%);transform:skewX(-22deg);transition:left .65s ease;pointer-events:none;z-index:-1}
+.btn::before,.nav-link::before,.text-button::before,.modal-close::before{content:"";position:absolute;top:-60%;left:-140%;width:65%;height:220%;background:linear-gradient(105deg,transparent 0%,#ffffff18 38%,#ffffffb8 50%,#d9b4ff55 62%,transparent 100%);transform:skewX(-22deg);transition:left .65s ease;pointer-events:none;z-index:1}
 .btn:hover::before,.nav-link:hover::before,.text-button:hover::before,.modal-close:hover::before{left:150%}
 .btn{box-shadow:0 0 0 1px #b36aff18,0 0 14px #a64cff18;transition:transform .2s,box-shadow .25s,border-color .25s}
 .btn:hover,.btn:focus-visible{box-shadow:0 0 0 1px #d7b2ff88,0 0 12px #b36aff88,0 0 28px #8c42ef66}
