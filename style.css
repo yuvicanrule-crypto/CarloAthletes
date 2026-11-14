@@ -39,3 +39,16 @@
 .text-button:hover,.modal-close:hover{color:#fff;text-shadow:0 0 12px #c18aff}
 @keyframes buttonGlow{0%,100%{box-shadow:0 8px 24px #9238dc28,0 0 0 #b36aff00}50%{box-shadow:0 8px 30px #9238dc60,0 0 15px #b36aff45}}
 @media(prefers-reduced-motion:reduce){.btn-primary{animation:none}.btn::before,.nav-link::before,.text-button::before,.modal-close::before{transition:none}}
+
+/* Animated purple electric C watermark across the full website */
+body{isolation:isolate}
+.current-c-watermark{position:fixed;inset:0;z-index:0;display:grid;place-items:center;overflow:hidden;pointer-events:none;opacity:.82}
+.current-c-watermark svg{width:min(88vw,920px);height:min(88vh,920px);overflow:visible;filter:drop-shadow(0 0 18px #8b5cf655)}
+.current-c-watermark text{font-family:'Barlow Condensed',Arial,sans-serif;font-size:900px;font-weight:900;dominant-baseline:auto}
+.current-c-fill{fill:#8b5cf6;fill-opacity:.045;stroke:#a855f7;stroke-opacity:.22;stroke-width:2}
+.current-c-trace{fill:none;stroke:#c084fc;stroke-width:3;stroke-linejoin:round;stroke-dasharray:22 34;stroke-linecap:round;animation:currentFlow 5s linear infinite;filter:drop-shadow(0 0 7px #a855f7) drop-shadow(0 0 18px #9333ea)}
+body>*:not(.ambient):not(.current-c-watermark){position:relative;z-index:1}
+.side-brand{z-index:20}
+@keyframes currentFlow{to{stroke-dashoffset:-560}}
+@media(max-width:650px){.current-c-watermark{opacity:.55}.current-c-watermark svg{width:118vw;height:70vh}}
+@media(prefers-reduced-motion:reduce){.current-c-trace{animation:none}}
