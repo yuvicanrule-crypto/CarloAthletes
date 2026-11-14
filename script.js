@@ -4,6 +4,7 @@ let currentUser = null;
 
 function showApp(user) {
   currentUser = user;
+  localStorage.setItem('ca_demo_session', user.email);
   $('authScreen').classList.add('hidden');
   $('app').classList.remove('hidden');
   $('welcomeName').textContent = `WELCOME, ${(user.displayName || user.email.split('@')[0]).toUpperCase()}`;
@@ -35,7 +36,7 @@ $('authForm').addEventListener('submit',e=>{
     showApp(users[email]);
   }
 });
-$('logoutBtn').addEventListener('click',()=>{currentUser=null;$('app').classList.add('hidden');$('authScreen').classList.remove('hidden');$('authForm').reset()});
+$('logoutBtn').addEventListener('click',()=>{localStorage.removeItem('ca_demo_session');currentUser=null;$('app').classList.add('hidden');$('authScreen').classList.remove('hidden');$('authForm').reset()});
 function openProfile(){
   $('displayName').value=currentUser?.displayName||'';
   $('ign').value=currentUser?.ign||'';
@@ -80,3 +81,12 @@ $('matchModal').addEventListener('click',e=>{if(e.target===$('matchModal'))$('ma
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 document.querySelectorAll('.nav-link').forEach(link=>link.addEventListener('click',()=>{document.querySelectorAll('.nav-link').forEach(a=>a.classList.remove('active'));link.classList.add('active')}));
+
+// Restore the last signed-in demo account on this browser.
+(function restoreSession(){
+  const email = localStorage.getItem('ca_demo_session');
+  if (!email) return;
+  const user = getUsers()[email];
+  if (user) showApp(user);
+  else localStorage.removeItem('ca_demo_session');
+})();
