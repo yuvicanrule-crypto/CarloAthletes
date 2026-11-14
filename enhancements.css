@@ -421,3 +421,10 @@ body::before,body::after{
   background:none!important;
   filter:none!important;
 }
+
+
+/* DIAGONAL SPLIT — angled boundary between grey and matt black */
+body{
+  background:linear-gradient(135deg,#525252 0%,#525252 49.8%,#151515 50.2%,#151515 100%) fixed!important;
+  background-attachment:fixed!important;
+}
