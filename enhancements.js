@@ -258,4 +258,32 @@
   if(vault)vault.addEventListener('click',()=>{const input=$('caVaultCode'),feedback=$('caVaultFeedback');if((input.value||'').trim().toUpperCase()==='CARLO'){if(!badges.includes('secret'))addXp(10,'secret');if(feedback)feedback.textContent='Secret C unlocked! +10 activity XP.';notify('Secret badge unlocked!');}else if(feedback)feedback.textContent='That code did not unlock the vault. Try again.';});
   universe.querySelectorAll('[data-rival]').forEach(btn=>btn.addEventListener('click',()=>{localStorage.setItem('ca_rival_vote_v1',btn.dataset.rival);addXp(2,'rival');const feedback=$('caRivalFeedback');if(feedback)feedback.textContent='Your local demo vote: '+btn.dataset.rival+'. +2 activity XP.';universe.querySelectorAll('[data-rival]').forEach(b=>b.disabled=true);}));
 
+
+  // NEW: Neon cursor-drop trail while moving the pointer or scrolling.
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    let lastPointer={x:innerWidth/2,y:innerHeight/2};
+    let lastDrop=0;
+    function spawnCursorDrop(x,y){
+      const now=performance.now();
+      if(now-lastDrop<38)return;
+      lastDrop=now;
+      const drop=document.createElement('i');
+      drop.className='ca-cursor-drop';
+      drop.setAttribute('aria-hidden','true');
+      drop.style.left=x+'px';
+      drop.style.top=y+'px';
+      drop.style.setProperty('--drop-drift',(Math.random()*34-17)+'px');
+      drop.style.setProperty('--drop-life',(520+Math.random()*280)+'ms');
+      document.body.append(drop);
+      setTimeout(()=>drop.remove(),900);
+    }
+    addEventListener('pointermove',e=>{
+      lastPointer={x:e.clientX,y:e.clientY};
+      spawnCursorDrop(e.clientX,e.clientY);
+    },{passive:true});
+    addEventListener('scroll',()=>{
+      spawnCursorDrop(lastPointer.x,lastPointer.y);
+    },{passive:true});
+  }
+
 })();
