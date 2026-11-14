@@ -1,0 +1,60 @@
+/* NEW: tournament-grade enhancements — additive layer only */
+:root{--ca-accent:#a855f7;--ca-hot:#fb4b55;--ca-panel:rgba(20,14,29,.82);--ca-line:rgba(190,130,255,.22)}
+#caProgress{position:fixed;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,#8b5cf6,#ff5268);z-index:1000;box-shadow:0 0 12px #a855f7}
+.ca-ticker{overflow:hidden;border-block:1px solid #482858;background:linear-gradient(90deg,#1b1027,#28102a,#1b1027);padding:11px 0;color:#e8d8ff;font-size:10px;font-weight:800;letter-spacing:1.7px}
+.ca-ticker-track{display:flex;gap:55px;width:max-content;white-space:nowrap;animation:caTicker 28s linear infinite}
+@keyframes caTicker{to{transform:translateX(-50%)}}
+.ca-pro-hero{padding:50px 9%;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;background:radial-gradient(ellipse at 80% 45%,#421c5d77,transparent 55%),linear-gradient(120deg,#100b18,#120b1c);border-block:1px solid #382348}
+.ca-pro-hero h2{font:900 clamp(38px,5vw,66px)/.95 'Barlow Condensed';margin:12px 0;color:#fff}
+.ca-pro-hero h2 span{color:#c18aff;text-shadow:0 0 25px #9d4edd88}
+.ca-pro-hero p{color:#a99bb7;font-size:13px;line-height:1.8;max-width:620px}
+.ca-pro-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.ca-countdown{padding:23px;border:1px solid #633d7b;border-radius:14px;background:rgba(18,11,27,.76);box-shadow:0 15px 55px #0005;text-align:center}
+.ca-countdown strong{display:block;font:900 30px 'Barlow Condensed';color:#e6caff;margin:9px 0}
+.ca-countdown small{color:#a99bb7;font-size:9px;letter-spacing:1.5px}
+.ca-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.ca-card{padding:22px;border:1px solid var(--ca-line);border-radius:13px;background:linear-gradient(145deg,rgba(31,20,43,.88),rgba(13,10,19,.92));box-shadow:0 12px 35px #0003;backdrop-filter:blur(12px)}
+.ca-card h3{font:800 24px 'Barlow Condensed';margin:7px 0}
+.ca-card p,.ca-muted{color:#a99db4;font-size:12px;line-height:1.75}
+.ca-chip{display:inline-block;padding:6px 9px;border:1px solid #744a8f;border-radius:30px;color:#d9b7ff;font-size:8px;font-weight:800;letter-spacing:1px}
+.ca-empty{grid-column:1/-1;text-align:center;padding:25px;border:1px dashed #65437a;border-radius:12px;color:#b8a7c7;background:#160f20}
+.ca-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ca-form label{display:block;color:#d7c8e4;font-size:10px;font-weight:700;letter-spacing:.6px}
+.ca-form input,.ca-form select,.ca-form textarea{width:100%;margin-top:7px;padding:13px;border-radius:8px;border:1px solid #3d2d4b;background:#100c17;color:#fff;outline:none}
+.ca-form input:focus,.ca-form select:focus,.ca-form textarea:focus{border-color:#b36aff;box-shadow:0 0 0 3px #a855f722}
+.ca-form .wide{grid-column:1/-1}
+.ca-table-wrap{overflow:auto;border:1px solid #3c2b49;border-radius:12px}
+.ca-table{width:100%;border-collapse:collapse;min-width:540px}
+.ca-table th,.ca-table td{padding:13px;text-align:left;border-bottom:1px solid #30213d;font-size:11px}
+.ca-table th{color:#d7b7fa;background:#1b1224;cursor:pointer}
+.ca-table td{color:#c9bdD5}
+.ca-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
+.ca-toolbar input{flex:1;min-width:180px;padding:12px;border:1px solid #3d2d4b;border-radius:8px;background:#100c17;color:#fff}
+.ca-accordion{border:1px solid #3b2948;border-radius:10px;margin:10px 0;background:#15101d;overflow:hidden}
+.ca-accordion button{width:100%;padding:16px;text-align:left;background:none;border:0;color:#eee;font-weight:800;cursor:pointer}
+.ca-accordion-panel{display:none;padding:0 16px 16px;color:#aa9db7;font-size:12px;line-height:1.8}
+.ca-accordion.open .ca-accordion-panel{display:block}
+.ca-toast{position:fixed;right:20px;bottom:20px;z-index:1100;max-width:min(360px,calc(100vw - 40px));padding:14px 18px;border:1px solid #8d5ab1;border-radius:10px;background:#1c1127;color:#f3e7ff;box-shadow:0 12px 40px #0009;opacity:0;transform:translateY(12px);transition:.25s;pointer-events:none}
+.ca-toast.show{opacity:1;transform:translateY(0)}
+#caBackTop{position:fixed;right:18px;bottom:18px;z-index:800;display:none;border:1px solid #8d5ab1;border-radius:50%;width:43px;height:43px;background:#241432;color:#fff;font-size:20px;cursor:pointer;box-shadow:0 0 20px #8b5cf755}
+#caBackTop.show{display:block}
+.ca-mobile-toggle{display:none}
+.ca-privacy{position:fixed;left:16px;bottom:16px;z-index:900;max-width:360px;padding:16px;border:1px solid #65437a;border-radius:12px;background:#160f20;box-shadow:0 15px 45px #0009}
+.ca-privacy p{font-size:11px;color:#c0b3cc;line-height:1.6;margin:6px 0 12px}
+.ca-privacy-actions{display:flex;gap:8px}
+.ca-privacy button{border:1px solid #8052a1;background:#281838;color:#fff;border-radius:7px;padding:8px 11px;font-size:10px;cursor:pointer}
+.ca-light{background:#f4effb!important;color:#21172c!important}
+.ca-light .ca-card,.ca-light .ca-countdown,.ca-light .ca-privacy{background:#fff;color:#21172c}
+.ca-light .ca-form input,.ca-light .ca-form select,.ca-light .ca-form textarea,.ca-light .ca-toolbar input{background:#fff;color:#21172c}
+.ca-light .ca-card p,.ca-light .ca-muted{color:#574a62}
+.ca-section-head{margin-bottom:22px}
+.ca-section-head h2{font:900 clamp(36px,5vw,58px) 'Barlow Condensed';margin:8px 0}
+.ca-section-head h2 span{color:#bd83ff}
+.ca-progressbar{height:7px;background:#33233f;border-radius:10px;overflow:hidden;margin:12px 0}
+.ca-progressbar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b5cf6,#ff5268)}
+.ca-socials{display:flex;gap:10px;flex-wrap:wrap}
+.ca-socials a{border:1px solid #67417d;padding:11px 14px;border-radius:8px;color:#e4caff;font-size:10px;font-weight:800}
+.ca-footer-extra{display:flex;gap:18px;flex-wrap:wrap;font-size:10px;color:#a88bbb}
+@media(max-width:850px){.ca-pro-hero{grid-template-columns:1fr;padding:40px 6%}.ca-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.ca-grid{grid-template-columns:1fr}.ca-form{grid-template-columns:1fr}.ca-form .wide{grid-column:auto}.ca-pro-hero{padding:34px 6%}.ca-countdown strong{font-size:25px}}
+@media(prefers-reduced-motion:reduce){.ca-ticker-track{animation:none}}
