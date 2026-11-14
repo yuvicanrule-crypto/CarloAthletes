@@ -84,3 +84,10 @@
 .ca-trophy.earned{border-color:#a77b35;color:#ffe29a;background:#4b351b55}
 .ca-trophy.locked{opacity:.55}
 @media(max-width:760px){.ca-universe-grid{grid-template-columns:1fr}.ca-rivalry{align-items:flex-start}}
+
+
+/* NEW: Electric purple cursor-drop trail */
+.ca-cursor-drop{position:fixed;z-index:1200;width:5px;height:12px;pointer-events:none;border-radius:70% 70% 75% 75%;background:linear-gradient(180deg,#fff,#d9a6ff 35%,#8b35ff);box-shadow:0 0 7px #c77aff,0 0 16px #8b35ff,0 0 24px #7025d8;transform:translate(-50%,-20%) rotate(18deg);animation:caCursorDrop var(--drop-life,650ms) cubic-bezier(.18,.68,.32,1) forwards}
+@keyframes caCursorDrop{0%{opacity:0;transform:translate(-50%,-20%) scale(.45) rotate(18deg)}15%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--drop-drift,0px)),42px) scale(.08) rotate(30deg)}}
+@media(pointer:coarse){.ca-cursor-drop{display:none}}
+@media(prefers-reduced-motion:reduce){.ca-cursor-drop{display:none}}
