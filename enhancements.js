@@ -130,10 +130,13 @@
   </section>`;
   if(footer) footer.insertAdjacentHTML('beforebegin',sections);
 
+  // PERFORMANCE CLEANUP: remove unused/empty preview-only sections; keep core live site areas.
+  ['caRegister','caPoints','caFixtures','caRoster','caStream','caWinners','caRewards','caGallery','caSponsors','caNews','caStats','caReviews','caContact','caAdminPreview','caLegal'].forEach(id=>$(id)?.remove());
+
   // NEW: Add navigation shortcuts without removing existing menu items
   const navForLinks=app.querySelector('.main-nav');
   if(navForLinks){
-    [['caUpcoming','TOURNAMENTS'],['caRegister','REGISTER'],['caPoints','POINTS'],['caStream','LIVE'],['caFaq','FAQ']].forEach(([id,label])=>{
+    [['caUpcoming','TOURNAMENTS'],['caFaq','FAQ']].forEach(([id,label])=>{
       const link=document.createElement('a');link.href='#'+id;link.className='nav-link';link.textContent=label;navForLinks.append(link);
     });
   }
@@ -158,11 +161,7 @@
   const interest=$('caInterestForm');if(interest)interest.addEventListener('submit',e=>{e.preventDefault();if(!interest.reportValidity())return;notify('Form validated in preview only. Your entry has NOT been submitted or confirmed. Contact @its.yuvi.btw.');interest.reset();});
   const contact=$('caContactForm');if(contact)contact.addEventListener('submit',e=>{e.preventDefault();if(!contact.reportValidity())return;notify('Message checked in preview only. Nothing was sent. Please contact the organizer on Instagram.');contact.reset();});
 
-  // NEW: Consent notice for future analytics/cookies; no analytics tracker is installed
-  if(!localStorage.getItem('ca_privacy_choice')){
-    const consent=document.createElement('aside');consent.className='ca-privacy';consent.innerHTML='<strong>YOUR PRIVACY</strong><p>This demo does not currently run an analytics tracker. Choose whether to dismiss this notice. No tracking preference is sent to a server.</p><div class="ca-privacy-actions"><button type="button" data-choice="ok">OK</button><button type="button" data-choice="close">CLOSE</button></div>';document.body.append(consent);
-    consent.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{localStorage.setItem('ca_privacy_choice',btn.dataset.choice);consent.remove();}));
-  }
+  // Privacy banner removed: no analytics or tracking cookies are installed.
 
   // NEW: CarloVerse — repeat-visit activities and local demo progression.
   // Match points are deliberately separate and must come from organizer-verified results.
@@ -259,31 +258,6 @@
   universe.querySelectorAll('[data-rival]').forEach(btn=>btn.addEventListener('click',()=>{localStorage.setItem('ca_rival_vote_v1',btn.dataset.rival);addXp(2,'rival');const feedback=$('caRivalFeedback');if(feedback)feedback.textContent='Your local demo vote: '+btn.dataset.rival+'. +2 activity XP.';universe.querySelectorAll('[data-rival]').forEach(b=>b.disabled=true);}));
 
 
-  // NEW: Neon cursor-drop trail while moving the pointer or scrolling.
-  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    let lastPointer={x:innerWidth/2,y:innerHeight/2};
-    let lastDrop=0;
-    function spawnCursorDrop(x,y){
-      const now=performance.now();
-      if(now-lastDrop<38)return;
-      lastDrop=now;
-      const drop=document.createElement('i');
-      drop.className='ca-cursor-drop';
-      drop.setAttribute('aria-hidden','true');
-      drop.style.left=x+'px';
-      drop.style.top=y+'px';
-      drop.style.setProperty('--drop-drift',(Math.random()*34-17)+'px');
-      drop.style.setProperty('--drop-life',(520+Math.random()*280)+'ms');
-      document.body.append(drop);
-      setTimeout(()=>drop.remove(),900);
-    }
-    addEventListener('pointermove',e=>{
-      lastPointer={x:e.clientX,y:e.clientY};
-      spawnCursorDrop(e.clientX,e.clientY);
-    },{passive:true});
-    addEventListener('scroll',()=>{
-      spawnCursorDrop(lastPointer.x,lastPointer.y);
-    },{passive:true});
-  }
+  // Cursor particle trail removed to reduce continuous DOM work.
 
 })();
