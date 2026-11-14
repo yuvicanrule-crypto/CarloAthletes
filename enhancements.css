@@ -58,3 +58,29 @@
 @media(max-width:850px){.ca-pro-hero{grid-template-columns:1fr;padding:40px 6%}.ca-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.ca-grid{grid-template-columns:1fr}.ca-form{grid-template-columns:1fr}.ca-form .wide{grid-column:auto}.ca-pro-hero{padding:34px 6%}.ca-countdown strong{font-size:25px}}
 @media(prefers-reduced-motion:reduce){.ca-ticker-track{animation:none}}
+
+
+/* NEW: CarloVerse and India Booyah Ranking — additive styles */
+.ca-universe-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;align-items:stretch}
+.ca-rank-card h3,.ca-xp-card h3,.ca-rivalry h3{font:900 28px 'Barlow Condensed';margin:12px 0}
+.ca-rank-title{font:900 clamp(30px,4vw,48px) 'Barlow Condensed';color:#d9b5ff;text-shadow:0 0 22px #9b4dce88;margin:14px 0}
+.ca-points-rules,.ca-rank-tiers{display:grid;gap:8px;margin-top:18px;padding-top:16px;border-top:1px solid var(--ca-line)}
+.ca-points-rules span,.ca-rank-tiers span{display:flex;justify-content:space-between;gap:12px;color:#d8cce2;font-size:11px}
+.ca-points-rules span strong{color:#d9b5ff}
+.ca-points-rules small{line-height:1.6}
+.ca-rank-tiers .apex{color:#ffd66b;font-weight:900}
+.ca-rank-tiers small{color:#a99db4}
+.ca-xp-number{font:900 48px 'Barlow Condensed';color:#d7b4ff;margin:20px 0 8px}
+.ca-badges,.ca-quiz-options,.ca-vault-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.ca-badges span,.ca-trophy{padding:9px 11px;border:1px solid #65437a;border-radius:8px;color:#e1c7ff;font-size:9px;font-weight:800;letter-spacing:.7px}
+.ca-subhead{margin-top:38px}
+.ca-quiz-question{font-size:13px;color:#f1e8fa;font-weight:700;line-height:1.5}
+.ca-quiz-options button{padding:10px 12px;border:1px solid #694786;border-radius:8px;background:#21152e;color:#f1e8fa;font-size:10px;font-weight:800;cursor:pointer}
+.ca-quiz-options button:hover{border-color:#c18aff;box-shadow:0 0 18px #a855f744}
+.ca-quiz-options button:disabled,.ca-quest:disabled{opacity:.55;cursor:not-allowed}
+.ca-vault-row input{flex:1;min-width:130px;padding:11px;border:1px solid #65437a;border-radius:8px;background:#100c17;color:#fff}
+.ca-rivalry{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.ca-trophy-grid{display:flex;gap:10px;flex-wrap:wrap}
+.ca-trophy.earned{border-color:#a77b35;color:#ffe29a;background:#4b351b55}
+.ca-trophy.locked{opacity:.55}
+@media(max-width:760px){.ca-universe-grid{grid-template-columns:1fr}.ca-rivalry{align-items:flex-start}}
