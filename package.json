@@ -41,5 +41,6 @@
       "perMachine": false,
       "allowToChangeInstallationDirectory": false
     }
-  }
+  },
+  "main": "electron/main.js"
 }
