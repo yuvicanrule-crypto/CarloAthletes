@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#09070f" />
+  <title>CarloAthletes — Indian Free Fire Esports</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="side-brand">SZN1.ESP!</div>
+
+  <section id="authScreen" class="auth-screen">
+    <div class="auth-art">
+      <div class="art-grid"></div>
+      <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
+      <div class="hero-kicker"><span class="pulse"></span> INDIAN FREE FIRE COMMUNITY</div>
+      <div class="auth-title">YOUR<br><span>ARENA.</span><br>YOUR LEGACY.</div>
+      <p class="auth-sub">India has talent. India has champions.<br>Now it's your turn to prove it.</p>
+      <div class="art-bottom"><span>COMPETE</span><i></i><span>DOMINATE</span><i></i><span>CONQUER</span></div>
+    </div>
+    <div class="auth-panel">
+      <div class="brand-lockup"><div class="brand-mark">C</div><div>CARLO<span>ATHLETES</span><small>FREE FIRE ESPORTS</small></div></div>
+      <div class="auth-card">
+        <div class="eyebrow">WELCOME TO THE ARENA</div>
+        <h1 id="authHeading">Sign in<span>.</span></h1>
+        <p class="muted" id="authDescription">Enter your details to access your player space.</p>
+        <form id="authForm">
+          <label>Email address<input id="email" type="email" placeholder="you@example.com" required /></label>
+          <label>Password<input id="password" type="password" placeholder="At least 6 characters" minlength="6" required /></label>
+          <button class="btn btn-primary full" id="authSubmit" type="submit">SIGN IN <span>↗</span></button>
+        </form>
+        <p class="switch-auth"><span id="switchText">New to CarloAthletes?</span> <button id="switchAuth" class="text-button">Create account</button></p>
+        <p class="demo-note">Demo preview only — this sign-in is stored on this device, not a secure online account.</p>
+      </div>
+      <div class="auth-footer">OWNER — YUVI <span>•</span> MY ORG — Szn1.esp!</div>
+    </div>
+  </section>
+
+  <main id="app" class="hidden">
+    <header class="topbar">
+      <a class="brand-lockup compact" href="#home"><div class="brand-mark">C</div><div>CARLO<span>ATHLETES</span><small>INDIA ESPORTS</small></div></a>
+      <nav>
+        <a href="#home" class="nav-link active">HOME</a>
+        <a href="#matches" class="nav-link">MATCHES</a>
+        <a href="#org" class="nav-link">MY ORG</a>
+      </nav>
+      <div class="top-actions"><span class="owner-tag">OWNER — YUVI</span><button id="logoutBtn" class="btn btn-ghost small">LOG OUT</button></div>
+    </header>
+
+    <section id="home" class="hero section">
+      <div class="hero-copy reveal">
+        <div class="hero-kicker"><span class="pulse"></span> BUILT FOR INDIAN PLAYERS</div>
+        <h1>THIS IS NOT<br>JUST A GAME.<br><span>IT'S YOUR MOMENT.</span></h1>
+        <p>One lobby. One opportunity. Make every match count. Step into the CarloAthletes arena.</p>
+        <div class="hero-buttons"><a class="btn btn-primary" href="#matches">ENTER THE ARENA <span>↗</span></a><a class="btn btn-outline" href="#org">MEET THE GUILD</a></div>
+        <div class="hero-meta"><div><strong>BR</strong><small>BATTLE ROYALE</small></div><i></i><div><strong>CS</strong><small>CLASH SQUAD</small></div><i></i><div><strong>IND</strong><small>INDIA FIRST</small></div></div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="visual-ring ring-one"></div><div class="visual-ring ring-two"></div>
+        <div class="visual-emblem"><span class="emblem-top">CARLO</span><strong>C</strong><span class="emblem-bottom">ATHLETES</span></div>
+        <div class="visual-caption"><span class="caption-line"></span><div><b>THE NEXT ROUND</b><small>STARTS WITH YOU</small></div></div>
+        <div class="visual-number">01<span>/03</span></div>
+      </div>
+      <div class="hero-bottomline"><span>SCROLL TO EXPLORE</span><span>01 — WELCOME</span></div>
+    </section>
+
+    <section class="profile-strip section reveal">
+      <div class="profile-icon" id="profileInitial">P</div>
+      <div class="profile-copy"><small>PLAYER SPACE</small><strong id="welcomeName">WELCOME, PLAYER</strong><span id="welcomeIgn">Add your Free Fire details below</span></div>
+      <button class="btn btn-outline small" id="editProfileBtn">EDIT PROFILE</button>
+    </section>
+
+    <section id="matches" class="section matches-section">
+      <div class="section-heading reveal"><div><div class="eyebrow">CHOOSE YOUR BATTLE</div><h2>SELECT YOUR <span>MODE.</span></h2></div><p>Two formats. One competitive spirit.<br>Pick your match and read the details.</p></div>
+      <div class="mode-grid">
+        <article class="mode-card br-card reveal">
+          <div class="card-top"><span class="mode-number">01 / MAIN MODE</span><span class="mode-pill">SQUAD FORMAT</span></div>
+          <div class="mode-art br-art"><div class="art-cross"></div><div class="art-word">BR</div><div class="art-subword">BATTLE ROYALE</div></div>
+          <div class="mode-content"><div class="eyebrow">THE LAST SQUAD STANDING</div><h3>BATTLE ROYALE</h3><p>Team up, enter the lobby and fight for the top spot. Custom-room match for Indian players.</p>
+            <div class="stat-row"><div><strong>50</strong><small>PLAYER CAPACITY</small></div><div><strong>SQUAD</strong><small>FORMAT</small></div><div><strong>4:30</strong><small>PM IST</small></div></div>
+            <button class="btn btn-primary full" data-open="br">VIEW BR DETAILS <span>↗</span></button>
+          </div>
+        </article>
+        <article class="mode-card cs-card reveal">
+          <div class="card-top"><span class="mode-number">02 / SECOND MODE</span><span class="mode-pill muted-pill">TEAM FORMAT</span></div>
+          <div class="mode-art cs-art"><div class="art-cross"></div><div class="art-word">CS</div><div class="art-subword">CLASH SQUAD</div></div>
+          <div class="mode-content"><div class="eyebrow">FOUR AGAINST FOUR</div><h3>CLASH SQUAD</h3><p>Bring your team, coordinate your plays and compete in a focused 4v4 custom-room format.</p>
+            <div class="stat-row"><div><strong>4v4</strong><small>TEAM FORMAT</small></div><div><strong>8</strong><small>PLAYERS</small></div><div><strong>DM</strong><small>TO JOIN</small></div></div>
+            <button class="btn btn-outline full" data-open="cs">VIEW CS DETAILS <span>↗</span></button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="notice-section section reveal">
+      <div class="notice-icon">!</div><div><div class="eyebrow">IMPORTANT</div><h3>DM CONFIRMATION IS COMPULSORY.</h3><p>Opening Instagram does not confirm a place. Send your game details and wait for organizer confirmation.</p></div>
+      <a class="btn btn-outline" href="https://www.instagram.com/i.yuvi.o76/" target="_blank" rel="noopener">CONTACT YUVI ↗</a>
+    </section>
+
+    <section id="org" class="org-section section reveal">
+      <div class="org-visual"><div class="org-monogram">S<span>1</span></div><div class="org-stamp">COMMUNITY<br>• EST. SZN1 •</div></div>
+      <div class="org-copy"><div class="eyebrow">THE PEOPLE BEHIND THE ARENA</div><h2>TO JOIN <span>US.</span></h2><div class="guild-label">MY GUILD</div><div class="guild-name">Szn1.esp!</div><p>Built by players. United by competition. Driven by victory. CarloAthletes represents the Szn1.esp! community and its passion for Free Fire esports.</p><div class="org-owner"><span>OWNER</span><strong>YUVI</strong></div><a class="btn btn-primary" href="https://www.instagram.com/i.yuvi.o76/" target="_blank" rel="noopener">CONNECT ON INSTAGRAM ↗</a></div>
+    </section>
+
+    <footer><div class="brand-lockup compact"><div class="brand-mark">C</div><div>CARLO<span>ATHLETES</span><small>INDIA ESPORTS</small></div></div><div class="footer-mid">COMPETE. DOMINATE. CONQUER.</div><div class="footer-right">MY ORG — Szn1.esp!</div><p class="disclaimer">Independent community project. Not affiliated with or endorsed by Garena or Free Fire. Demo interface; match availability is confirmed by the organizer.</p></footer>
+  </main>
+
+  <div class="modal-backdrop hidden" id="matchModal">
+    <div class="modal">
+      <button class="modal-close" id="closeModal" aria-label="Close">×</button>
+      <div class="eyebrow" id="modalEyebrow">MATCH DETAILS</div><h2 id="modalTitle">BATTLE ROYALE<span>.</span></h2>
+      <div class="modal-badges" id="modalBadges"></div>
+      <div id="modalBody"></div>
+      <div class="modal-warning"><strong>DM IS COMPULSORY TO JOIN.</strong><span>Clicking the button does not automatically confirm your registration.</span></div>
+      <a class="btn btn-primary full" href="https://www.instagram.com/i.yuvi.o76/" target="_blank" rel="noopener">CONTACT YUVI ON INSTAGRAM ↗</a>
+    </div>
+  </div>
+
+  <div class="modal-backdrop hidden" id="profileModal">
+    <div class="modal profile-modal">
+      <button class="modal-close" id="closeProfile" aria-label="Close">×</button>
+      <div class="eyebrow">PLAYER PROFILE</div><h2>YOUR DETAILS<span>.</span></h2>
+      <form id="profileForm">
+        <label>Display name<input id="displayName" maxlength="24" placeholder="Your name" required></label>
+        <label>Free Fire game name (IGN)<input id="ign" maxlength="24" placeholder="Your in-game name" required></label>
+        <label>Free Fire UID<input id="uid" inputmode="numeric" maxlength="20" placeholder="Your player UID" required></label>
+        <label>Team name (optional)<input id="team" maxlength="30" placeholder="Your squad name"></label>
+        <button class="btn btn-primary full" type="submit">SAVE PROFILE ↗</button>
+      </form>
+      <p class="demo-note">Saved only in this browser for this demo. Do not enter passwords or sensitive personal information here.</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
