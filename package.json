@@ -1,0 +1,45 @@
+{
+  "name": "carloathletes-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CarloAthletes Android and Windows wrappers",
+  "scripts": {
+    "android:sync": "cap sync android",
+    "windows:build": "electron-builder --win nsis"
+  },
+  "dependencies": {
+    "@capacitor/core": "^7.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/cli": "^7.4.3",
+    "electron": "^34.3.3",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.carloathletes.desktop",
+    "productName": "CarloAthletes",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false
+    }
+  }
+}
