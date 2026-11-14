@@ -228,41 +228,96 @@ body::after{
 @media(prefers-reduced-motion:reduce){body{background-attachment:scroll}}
 
 
-/* HIGHLIGHTED E-SPORTS BACKGROUND WORDMARK — decorative Vice City neon layer */
-body{isolation:isolate}
+
+
+/* PREMIUM CHROMATIC AURORA — replaces the Vice City skyline background */
+html,body{background:#090b18}
+body{
+  isolation:isolate;
+  background:
+    radial-gradient(ellipse at 12% 16%,rgba(0,225,255,.30),transparent 36%),
+    radial-gradient(ellipse at 88% 15%,rgba(255,65,170,.27),transparent 34%),
+    radial-gradient(ellipse at 72% 78%,rgba(130,74,255,.30),transparent 40%),
+    radial-gradient(ellipse at 22% 84%,rgba(255,164,55,.18),transparent 34%),
+    linear-gradient(135deg,#090b18 0%,#11102b 42%,#080d1b 100%);
+  background-attachment:fixed;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:-12%;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.82;
+  background:
+    radial-gradient(ellipse at 22% 28%,rgba(0,232,255,.22),transparent 24%),
+    radial-gradient(ellipse at 75% 30%,rgba(255,70,175,.22),transparent 26%),
+    radial-gradient(ellipse at 58% 78%,rgba(146,86,255,.23),transparent 28%),
+    conic-gradient(from 210deg at 50% 50%,transparent 0deg,rgba(0,215,255,.09) 55deg,transparent 105deg,rgba(255,78,175,.10) 185deg,transparent 245deg,rgba(255,190,80,.08) 310deg,transparent 360deg);
+  filter:blur(34px) saturate(1.3);
+  animation:caAuroraDrift 24s ease-in-out infinite alternate;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.24;
+  background:
+    linear-gradient(125deg,transparent 0 24%,rgba(255,255,255,.09) 24.15%,transparent 24.5% 70%,rgba(255,255,255,.06) 70.2%,transparent 70.5%),
+    repeating-linear-gradient(0deg,transparent 0 69px,rgba(255,255,255,.035) 70px,transparent 71px),
+    repeating-linear-gradient(90deg,transparent 0 69px,rgba(255,255,255,.03) 70px,transparent 71px);
+  mask-image:linear-gradient(180deg,transparent,#000 18%,#000 86%,transparent);
+}
+@keyframes caAuroraDrift{
+  0%{transform:translate3d(-2%,0,0) scale(1) rotate(-2deg)}
+  100%{transform:translate3d(2%,-1.5%,0) scale(1.08) rotate(2deg)}
+}
+.topbar{background:rgba(8,10,25,.82);border-bottom-color:rgba(255,255,255,.14)}
+.ca-ticker{background:linear-gradient(90deg,rgba(0,188,212,.18),rgba(128,78,220,.22),rgba(255,72,156,.18));border-color:rgba(255,255,255,.18)}
+.ca-pro-hero,.hero{background-color:rgba(9,11,27,.56);background-blend-mode:screen}
+.profile-strip,.mode-card,.empty-state,.team-feature,.rule-card,.ca-card,.ca-countdown,.ca-accordion,.ca-privacy,.modal{
+  background-color:rgba(12,14,32,.78);
+  border-color:rgba(255,255,255,.17);
+  backdrop-filter:blur(18px);
+}
+.btn-primary{background:linear-gradient(105deg,#00cfe8,#7656f5 52%,#ff4e9b);box-shadow:0 8px 28px rgba(100,100,255,.24)}
+.btn-primary:hover{box-shadow:0 10px 34px rgba(0,220,255,.25),0 0 24px rgba(255,76,180,.22)}
+.hero h1 span,.section-heading h2 span,.org-copy h2 span,.ca-section-head h2 span{color:#d8c5ff;text-shadow:0 0 22px rgba(168,140,255,.45)}
+/* Monochrome icon treatment: clean black/white premium finish */
+.empty-icon,.notice-icon,.profile-icon,.brand-mark,.visual-emblem,.org-monogram,.org-stamp,.team-emblem,.mode-art .art-word,.ca-trophy,.ca-badges span{
+  filter:grayscale(1) contrast(1.12);
+}
+.brand-mark,.profile-icon,.team-emblem,.notice-icon{
+  background:linear-gradient(145deg,#f5f5f7,#777b87 52%,#171922)!important;
+  color:#080a10!important;
+  border:1px solid rgba(255,255,255,.65);
+  box-shadow:0 0 24px rgba(255,255,255,.12);
+}
+.brand-mark{color:#090b12!important}
+.visual-emblem{background:linear-gradient(145deg,#f7f7f7,#555965 50%,#11131b)!important}
+.visual-emblem strong,.org-monogram,.team-emblem{color:#fff!important;text-shadow:0 2px 18px rgba(0,0,0,.7)}
 .ca-background-wordmark{
   position:fixed;
   inset:0;
   z-index:-1;
   pointer-events:none;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
   align-items:center;
-  gap:0;
-  padding:20px;
+  justify-content:center;
   text-align:center;
-  opacity:.17;
-  transform:translateY(3vh);
+  opacity:.16;
   user-select:none;
   white-space:nowrap;
   overflow:hidden;
 }
-.ca-background-wordmark span{
-  font:900 clamp(34px,7vw,100px)/.86 'Barlow Condensed',sans-serif;
-  letter-spacing:.22em;
-  color:#ff83c7;
-  text-shadow:0 0 8px #ff4fb4,0 0 28px #ff4fb4,0 0 70px #b93dff;
-}
 .ca-background-wordmark strong{
-  font:900 clamp(58px,13vw,190px)/.88 'Barlow Condensed',sans-serif;
-  letter-spacing:.035em;
-  color:#74f3ff;
-  -webkit-text-stroke:1px rgba(116,243,255,.55);
-  text-shadow:0 0 8px #27dcff,0 0 28px #27dcff,0 0 70px #7b4dff;
+  font:900 clamp(68px,15vw,220px)/.9 'Barlow Condensed',sans-serif;
+  letter-spacing:.055em;
+  color:rgba(255,255,255,.88);
+  -webkit-text-stroke:1px rgba(255,255,255,.38);
+  text-shadow:0 0 16px rgba(255,255,255,.35),0 0 55px rgba(125,140,255,.25);
 }
-@media(max-width:600px){
-  .ca-background-wordmark{opacity:.12;transform:translateY(1vh)}
-  .ca-background-wordmark span{letter-spacing:.12em}
-}
-@media(prefers-reduced-motion:reduce){.ca-background-wordmark{transform:none}}
+@media(max-width:600px){.ca-background-wordmark{opacity:.11}}
+@media(prefers-reduced-motion:reduce){body{background-attachment:scroll}body::before{animation:none}}
