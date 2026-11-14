@@ -393,3 +393,16 @@ body::after{
   .main-nav .nav-link.active,.main-nav .nav-link:hover{background:#171b25!important;color:#fff!important}
 }
 @media(prefers-reduced-motion:reduce){body{background-attachment:scroll}}
+
+
+/* PERFORMANCE MODE: reduce paint/compositing work while preserving layout and features */
+.ambient,.ca-cursor-drop{display:none!important}
+body::before{animation:none!important;filter:none!important;opacity:.22!important}
+body::after{opacity:.08!important}
+.topbar,.profile-strip,.mode-card,.empty-state,.team-feature,.rule-card,.ca-card,.ca-countdown,.ca-accordion,.ca-privacy,.modal{
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+html{scroll-behavior:auto}
+.btn,.nav-link,.ca-ticker-track{transition:none!important}
+.ca-ticker-track{animation:none!important}
