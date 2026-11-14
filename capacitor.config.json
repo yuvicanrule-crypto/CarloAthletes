@@ -1,0 +1,12 @@
+{
+  "appId": "com.carloathletes.android",
+  "appName": "CarloAthletes",
+  "webDir": "www",
+  "server": {
+    "url": "https://yuvicanrule-crypto.github.io/CarloAthletes/",
+    "cleartext": false,
+    "allowNavigation": [
+      "yuvicanrule-crypto.github.io"
+    ]
+  }
+}
