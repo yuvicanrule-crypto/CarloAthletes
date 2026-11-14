@@ -445,3 +445,28 @@ body::before,body::after{
   background:none!important;
   opacity:0!important;
 }
+
+
+/* RESTORE THE ORIGINAL ANGLED PAGE BACKGROUND; MAKE CONTENT PANELS PURE BLACK */
+html,body{background:#151515!important;background-color:#151515!important}
+body{
+  background:linear-gradient(135deg,#525252 0%,#525252 49.8%,#151515 50.2%,#151515 100%) fixed!important;
+  background-attachment:fixed!important;
+}
+body::before,body::after{content:none!important;display:none!important;background:none!important;opacity:0!important}
+/* Black surfaces for information/detail panels, including announcements */
+.notice-section,.contact-panel,
+.profile-strip,.mode-card,.empty-state,.team-feature,.rule-card,
+.ca-card,.ca-countdown,.ca-accordion,.ca-privacy,.modal{
+  background:#000000!important;
+  background-image:none!important;
+  color:#f5f5f5!important;
+  border-color:rgba(255,255,255,.18)!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.28)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.notice-section p,.contact-panel p,
+.profile-strip p,.mode-card p,.empty-state p,.team-feature p,.rule-card p,
+.ca-card p,.ca-countdown small,.ca-accordion-panel,.ca-muted{color:#c5c5c5!important}
+.ca-section-head h2,.section-heading h2,.org-copy h2{color:#f5f5f5!important}
