@@ -130,6 +130,14 @@
   </section>`;
   if(footer) footer.insertAdjacentHTML('beforebegin',sections);
 
+  // NEW: Add navigation shortcuts without removing existing menu items
+  const navForLinks=app.querySelector('.main-nav');
+  if(navForLinks){
+    [['caUpcoming','TOURNAMENTS'],['caRegister','REGISTER'],['caPoints','POINTS'],['caStream','LIVE'],['caFaq','FAQ']].forEach(([id,label])=>{
+      const link=document.createElement('a');link.href='#'+id;link.className='nav-link';link.textContent=label;navForLinks.append(link);
+    });
+  }
+
   // NEW: Mobile menu, light mode and accordion interactions
   const nav=app.querySelector('.main-nav');
   if(nav){
