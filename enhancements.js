@@ -83,7 +83,7 @@
     <div class="ca-section-head"><div class="eyebrow">COMPETE WITH INTEGRITY</div><h2>TOURNAMENT <span>RULEBOOK.</span></h2></div>
     <div class="ca-accordion"><button type="button" aria-expanded="false">MAP &amp; GAME MODE <span>＋</span></button><div class="ca-accordion-panel">The map, mode and match settings will be specified in each official event announcement. Follow the in-game and organizer instructions.</div></div>
     <div class="ca-accordion"><button type="button" aria-expanded="false">FAIR PLAY &amp; CONDUCT <span>＋</span></button><div class="ca-accordion-panel">Cheats, exploits, harassment and abusive conduct are not permitted. Treat every participant and organizer respectfully.</div></div>
-    <div class="ca-accordion"><button type="button" aria-expanded="false">DISQUALIFICATION &amp; DISPUTES <span>＋</span></button><div class="ca-accordion-panel">Any event-specific disqualification process and dispute deadline must be published by the organizer before that event begins.</div></div>
+    <div class="ca-accordion"><button type="button" aria-expanded="false">DISQUALIFICATION &amp; DISPUTES <span>＋</span></button><div class="ca-accordion-panel">Any event-specific disqualification process and dispute deadline must be published by the organizer before that event begins. For rule clarifications, disputes or confirmation, contact the organizer on Instagram: <a href="https://www.instagram.com/its.yuvi.btw/" target="_blank" rel="noopener">@its.yuvi.btw</a>.</div></div>
   </section>
   <section id="caGallery" class="extra-section section">
     <div class="ca-section-head"><div class="eyebrow">COMMUNITY MOMENTS</div><h2>HIGHLIGHTS &amp; <span>GALLERY.</span></h2></div>
