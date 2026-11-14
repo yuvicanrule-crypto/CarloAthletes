@@ -90,3 +90,6 @@ document.querySelectorAll('.nav-link').forEach(link=>link.addEventListener('clic
   if (user) showApp(user);
   else localStorage.removeItem('ca_demo_session');
 })();
+
+const profileTabEdit = $('profileTabEdit');
+if (profileTabEdit) profileTabEdit.addEventListener('click', openProfile);
