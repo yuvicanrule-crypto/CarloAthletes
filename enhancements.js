@@ -163,4 +163,99 @@
     const consent=document.createElement('aside');consent.className='ca-privacy';consent.innerHTML='<strong>YOUR PRIVACY</strong><p>This demo does not currently run an analytics tracker. Choose whether to dismiss this notice. No tracking preference is sent to a server.</p><div class="ca-privacy-actions"><button type="button" data-choice="ok">OK</button><button type="button" data-choice="close">CLOSE</button></div>';document.body.append(consent);
     consent.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{localStorage.setItem('ca_privacy_choice',btn.dataset.choice);consent.remove();}));
   }
+
+  // NEW: CarloVerse — repeat-visit activities and local demo progression.
+  // Match points are deliberately separate and must come from organizer-verified results.
+  const universe = document.createElement('section');
+  universe.id = 'caUniverse';
+  universe.className = 'extra-section section';
+  universe.innerHTML = `
+    <div class="ca-section-head"><div class="eyebrow">ENTER THE CARLOVERSE</div><h2>YOUR <span>ESPORTS UNIVERSE.</span></h2><p class="ca-muted">Explore quests, quizzes, rivalries and collectibles. Your activity XP is a local demo and is not used for official tournament ranking.</p></div>
+    <div class="ca-universe-grid">
+      <article class="ca-card ca-rank-card">
+        <span class="ca-chip">INDIA • VERIFIED MATCH RANKING</span>
+        <h3>BOOYAH POWER RANKING</h3>
+        <div class="ca-rank-title">RANKS ARE EARNED.</div>
+        <p class="ca-muted">Official India-wide positions will appear only after the organizer publishes verified match results.</p>
+        <div class="ca-empty">No verified player results published yet.</div>
+        <div class="ca-points-rules">
+          <b>POINTS SYSTEM</b>
+          <span>Booyah / 1st place <strong>+10</strong></span>
+          <span>2nd place <strong>+8</strong></span>
+          <span>3rd place <strong>+6</strong></span>
+          <span>4th–5th place <strong>+4</strong></span>
+          <span>6th–10th place <strong>+2</strong></span>
+          <span>Each kill <strong>+1</strong> (maximum 10 per match)</span>
+          <small class="ca-muted">Booyah and 1st place count once, not twice. Results must be checked by the organizer.</small>
+        </div>
+        <div class="ca-rank-tiers">
+          <b>INDIA RANK TIERS</b>
+          <span>ROOKIE <small>0–99</small></span><span>HUNTER <small>100–249</small></span>
+          <span>BEAST <small>250–499</small></span><span>DARINDA <small>500–899</small></span>
+          <span>PHANTOM <small>900–1,499</small></span><span>NIGHTMARE <small>1,500–2,499</small></span>
+          <span class="apex">APEX LEGEND <small>2,500+</small></span>
+        </div>
+      </article>
+      <article class="ca-card ca-xp-card">
+        <span class="ca-chip">LOCAL DEMO PROGRESS</span><h3>PLAYER LEVEL</h3>
+        <div class="ca-xp-number" id="caXpNumber">LVL 1</div>
+        <div class="ca-progressbar"><span id="caXpBar"></span></div>
+        <p class="ca-muted" id="caXpText">0 / 100 activity XP</p>
+        <p class="ca-muted">Activity XP is for fun only. It does not change Booyah ranking or tournament results.</p>
+        <div class="ca-badges" id="caBadges"><span>STARTER</span></div>
+      </article>
+    </div>
+    <div class="ca-section-head ca-subhead"><div class="eyebrow">COME BACK TOMORROW</div><h2>DAILY <span>QUESTS.</span></h2></div>
+    <div class="ca-grid">
+      <article class="ca-card"><span class="ca-chip">DAILY QUEST 01</span><h3>ARENA CHECK-IN</h3><p class="ca-muted">Visit CarloAthletes today and claim your daily activity XP.</p><button class="btn btn-primary ca-quest" id="caCheckin" type="button">CLAIM +5 XP</button></article>
+      <article class="ca-card"><span class="ca-chip">DAILY QUEST 02</span><h3>KNOW YOUR GAME</h3><p class="ca-muted">Answer the daily Free Fire knowledge question.</p><p class="ca-quiz-question">In Battle Royale, what does “Booyah” indicate?</p><div class="ca-quiz-options"><button type="button" data-answer="a">A successful win</button><button type="button" data-answer="b">A team invite</button><button type="button" data-answer="c">A map location</button></div><p class="ca-muted" id="caQuizFeedback">Correct answer earns +5 activity XP once per day.</p></article>
+      <article class="ca-card"><span class="ca-chip">SECRET VAULT</span><h3>UNLOCK THE C</h3><p class="ca-muted">Find the CarloAthletes secret code and unlock a collectible badge.</p><div class="ca-vault-row"><input id="caVaultCode" maxlength="16" placeholder="ENTER SECRET CODE" aria-label="Secret code"><button class="btn btn-outline" id="caVaultUnlock" type="button">UNLOCK</button></div><p class="ca-muted" id="caVaultFeedback">Hint: the name of this arena.</p></article>
+    </div>
+    <div class="ca-section-head ca-subhead"><div class="eyebrow">COMMUNITY RIVALRY</div><h2>RIVALRY <span>ZONE.</span></h2></div>
+    <div class="ca-card ca-rivalry"><div><h3>WHICH PLAYSTYLE RULES?</h3><p class="ca-muted">Cast your local demo vote. This poll is not a live community-wide result.</p></div><div class="ca-quiz-options"><button type="button" data-rival="RUSHER">⚡ RUSHER</button><button type="button" data-rival="SNIPER">🎯 SNIPER</button><button type="button" data-rival="SUPPORT">🛡️ SUPPORT</button><button type="button" data-rival="IGL">🧠 IGL</button></div><p class="ca-muted" id="caRivalFeedback">Choose your playstyle.</p></div>
+    <div class="ca-section-head ca-subhead"><div class="eyebrow">YOUR COLLECTION</div><h2>TROPHY <span>ROOM.</span></h2></div>
+    <div class="ca-card"><p class="ca-muted">Collectible badges earned from website activities. Match trophies will be added only for verified achievements.</p><div class="ca-trophy-grid" id="caTrophyRoom"><span class="ca-trophy locked">🔒 FIRST CHECK-IN</span><span class="ca-trophy locked">🔒 QUIZ MASTER</span><span class="ca-trophy locked">🔒 SECRET C</span><span class="ca-trophy locked">🔒 COMMUNITY VOICE</span></div></div>
+  `;
+  if(footer) footer.insertAdjacentElement('beforebegin',universe);
+  if(navForLinks){
+    const link=document.createElement('a');link.href='#caUniverse';link.className='nav-link';link.textContent='CARLOVERSE';navForLinks.append(link);
+  }
+  const xpKey='ca_universe_xp_v1', badgeKey='ca_universe_badges_v1';
+  let xp=Number(localStorage.getItem(xpKey)||0);
+  let badges=JSON.parse(localStorage.getItem(badgeKey)||'[]');
+  const dayKey=()=>new Date().toISOString().slice(0,10);
+  const claimedKey='ca_quest_claims_v1', quizKey='ca_quiz_claims_v1';
+  function addXp(amount,badge){
+    xp+=amount;localStorage.setItem(xpKey,String(xp));
+    if(badge&&!badges.includes(badge)){badges.push(badge);localStorage.setItem(badgeKey,JSON.stringify(badges));}
+    renderProgress();
+  }
+  function renderProgress(){
+    const level=Math.floor(xp/100)+1,within=xp%100;
+    const number=$('caXpNumber'),bar=$('caXpBar'),label=$('caXpText'),badgeBox=$('caBadges'),room=$('caTrophyRoom');
+    if(number)number.textContent='LVL '+level;
+    if(bar)bar.style.width=within+'%';
+    if(label)label.textContent=within+' / 100 activity XP • '+xp+' total XP';
+    if(badgeBox)badgeBox.innerHTML='<span>STARTER</span>'+(level>=2?'<span>LEVEL 2</span>':'')+(level>=5?'<span>GRINDER</span>':'');
+    if(room){
+      const items=[['FIRST CHECK-IN','checkin'],['QUIZ MASTER','quiz'],['SECRET C','secret'],['COMMUNITY VOICE','rival']];
+      room.innerHTML=items.map(([name,key])=>'<span class="ca-trophy '+(badges.includes(key)?'earned':'locked')+'">'+(badges.includes(key)?'🏆 ':'🔒 ')+name+'</span>').join('');
+    }
+    const claims=JSON.parse(localStorage.getItem(claimedKey)||'{}');
+    const check=$('caCheckin');if(check){const done=claims[dayKey()];check.disabled=!!done;check.textContent=done?'CHECKED IN TODAY':'CLAIM +5 XP';}
+  }
+  renderProgress();
+  const checkin=$('caCheckin');
+  if(checkin)checkin.addEventListener('click',()=>{const claims=JSON.parse(localStorage.getItem(claimedKey)||'{}');if(claims[dayKey()])return;claims[dayKey()]=true;localStorage.setItem(claimedKey,JSON.stringify(claims));addXp(5,'checkin');notify('Daily check-in complete: +5 activity XP!');});
+  const quizButtons=universe.querySelectorAll('[data-answer]');
+  quizButtons.forEach(btn=>btn.addEventListener('click',()=>{
+    const claims=JSON.parse(localStorage.getItem(quizKey)||'{}'),feedback=$('caQuizFeedback');
+    if(claims[dayKey()]){if(feedback)feedback.textContent='You have already completed today’s quiz.';return;}
+    if(btn.dataset.answer==='a'){claims[dayKey()]=true;localStorage.setItem(quizKey,JSON.stringify(claims));addXp(5,'quiz');if(feedback)feedback.textContent='Correct! +5 activity XP earned.';notify('Quiz completed! +5 activity XP.');}
+    else if(feedback)feedback.textContent='Not quite. Try another answer.';
+  }));
+  const vault=$('caVaultUnlock');
+  if(vault)vault.addEventListener('click',()=>{const input=$('caVaultCode'),feedback=$('caVaultFeedback');if((input.value||'').trim().toUpperCase()==='CARLO'){if(!badges.includes('secret'))addXp(10,'secret');if(feedback)feedback.textContent='Secret C unlocked! +10 activity XP.';notify('Secret badge unlocked!');}else if(feedback)feedback.textContent='That code did not unlock the vault. Try again.';});
+  universe.querySelectorAll('[data-rival]').forEach(btn=>btn.addEventListener('click',()=>{localStorage.setItem('ca_rival_vote_v1',btn.dataset.rival);addXp(2,'rival');const feedback=$('caRivalFeedback');if(feedback)feedback.textContent='Your local demo vote: '+btn.dataset.rival+'. +2 activity XP.';universe.querySelectorAll('[data-rival]').forEach(b=>b.disabled=true);}));
+
 })();
