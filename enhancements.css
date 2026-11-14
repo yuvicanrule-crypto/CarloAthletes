@@ -406,3 +406,18 @@ body::after{opacity:.08!important}
 html{scroll-behavior:auto}
 .btn,.nav-link,.ca-ticker-track{transition:none!important}
 .ca-ticker-track{animation:none!important}
+
+
+/* SPLIT MONOCHROME BACKGROUND — left half #525252, right half Matt Black #151515 */
+html,body{
+  background:#151515!important;
+}
+body{
+  background:linear-gradient(90deg,#525252 0%,#525252 50%,#151515 50%,#151515 100%) fixed!important;
+  background-attachment:fixed!important;
+}
+body::before,body::after{
+  opacity:0!important;
+  background:none!important;
+  filter:none!important;
+}
