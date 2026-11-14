@@ -52,3 +52,12 @@ body>*:not(.ambient):not(.current-c-watermark){position:relative;z-index:1}
 @keyframes currentFlow{to{stroke-dashoffset:-560}}
 @media(max-width:650px){.current-c-watermark{opacity:.55}.current-c-watermark svg{width:118vw;height:70vh}}
 @media(prefers-reduced-motion:reduce){.current-c-trace{animation:none}}
+
+/* High-voltage neon lighting upgrade for the giant C */
+.current-c-watermark{opacity:1}
+.current-c-watermark svg{filter:drop-shadow(0 0 10px #9333ea) drop-shadow(0 0 28px #a855f7aa) drop-shadow(0 0 62px #7e22ce88);animation:cNeonPulse 2.8s ease-in-out infinite}
+.current-c-fill{fill:#a855f7;fill-opacity:.10;stroke:#d8b4fe;stroke-opacity:.72;stroke-width:3}
+.current-c-trace{stroke:#f3e8ff;stroke-width:6;stroke-dasharray:10 18;animation:currentFlow 1.7s linear infinite;filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 9px #e9d5ff) drop-shadow(0 0 20px #a855f7) drop-shadow(0 0 38px #7e22ce)}
+@keyframes cNeonPulse{0%,100%{filter:drop-shadow(0 0 9px #9333ea) drop-shadow(0 0 24px #a855f788) drop-shadow(0 0 48px #7e22ce66)}50%{filter:drop-shadow(0 0 17px #c084fc) drop-shadow(0 0 42px #a855f7) drop-shadow(0 0 85px #7e22ceaa)}}
+@media(max-width:650px){.current-c-watermark{opacity:.72}}
+@media(prefers-reduced-motion:reduce){.current-c-watermark svg{animation:none}.current-c-trace{animation:none}}
