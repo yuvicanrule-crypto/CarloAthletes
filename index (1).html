@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CARLOATHLETES – Free Fire Esports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#060606;--panel:#111112;--line:#252528;--text:#ededed;--mute:#8e9097;--silver:#c6c9ce;--gold:#c9a96e;--gold-d:#2a2417;
+--head:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;--body:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;
+color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:72px;height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:rgba(6,6,6,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{font:800 22px var(--head);letter-spacing:.06em;text-decoration:none}
+.logo b{color:var(--gold)}
+.links{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none}
+.links a{font-size:14px;font-weight:600;color:var(--mute);text-decoration:none;white-space:nowrap;transition:color .2s}
+.links a:hover{color:var(--text)}
+h1,h2,h3{font-family:var(--head);margin:0;line-height:.9;text-transform:uppercase}
+.hero{padding:64px 0 56px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:clamp(76px,19vw,230px);font-weight:900;letter-spacing:-.01em}
+.hero h1 span{display:block}
+.hero h1 .o{color:transparent;-webkit-text-stroke:2px var(--silver)}
+.hero-row{display:grid;gap:32px;margin-top:36px;grid-template-columns:1.3fr 1fr;align-items:end}
+.tag{font:700 clamp(18px,2.6vw,26px)/1.25 var(--head);letter-spacing:.04em;text-transform:uppercase;color:var(--silver);margin:0 0 22px;max-width:560px}
+.stmt{font:800 clamp(28px,4vw,44px)/1 var(--head);text-transform:uppercase;text-align:right;margin:0}
+.stmt i{display:block;font-style:normal;color:var(--gold)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:13px 22px;border-radius:6px;font-weight:700;font-size:15px;text-decoration:none;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;font-family:var(--body);transition:background .2s,border-color .2s}
+.btn:hover{border-color:var(--silver)}
+.btn.p{background:var(--text);color:#000;border-color:var(--text)}
+.btn.p:hover{background:var(--silver)}
+.btn.g{border-color:var(--gold);color:var(--gold)}
+.btn.g:hover{background:var(--gold-d)}
+section{padding:84px 0;border-bottom:1px solid var(--line)}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+h2{font-size:clamp(44px,8vw,88px);font-weight:900}
+.sh p{max-width:420px;color:var(--mute);margin:0}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px}
+.tabs{display:inline-flex;border:1px solid var(--line);border-radius:8px;padding:4px;margin-bottom:20px}
+.tabs button{background:none;border:0;color:var(--mute);font:700 14px var(--body);padding:9px 18px;border-radius:5px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--text);color:#000}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+h3{font-size:30px;font-weight:800;margin-bottom:12px;line-height:1}
+.panel p{color:var(--mute);margin:0 0 10px}
+.panel p:last-child{margin:0}
+dl{margin:0}dt{font-weight:700;margin-top:12px}dd{margin:0;color:var(--mute)}
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:20px}
+.stage{padding:20px;border:1px solid var(--line);margin-left:-1px}
+.stage:first-child{margin-left:0;border-radius:10px 0 0 10px}.stage:last-child{border-radius:0 10px 10px 0}
+.stage b{font:800 26px var(--head);text-transform:uppercase;display:block}
+.stage span{color:var(--mute);font-size:14px}
+.stage:last-child b{color:var(--gold)}
+ol.steps{margin:0;padding-left:20px;color:var(--mute)}ol.steps li{margin-bottom:8px}ol.steps b{color:var(--text)}
+.empty{border:1px dashed var(--line);border-radius:10px;padding:28px;text-align:center;color:var(--mute)}
+.empty b{display:block;color:var(--text);font:800 26px var(--head);text-transform:uppercase;margin-bottom:4px}
+/* ranking */
+.calc{display:grid;grid-template-columns:1.1fr 1fr;gap:20px}
+label{display:block;font-size:13px;font-weight:700;color:var(--mute);margin:0 0 6px}
+select,input{width:100%;background:#000;border:1px solid var(--line);color:var(--text);border-radius:6px;padding:12px;font:600 16px var(--body)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.pv{font:900 64px/1 var(--head);color:var(--gold);margin:6px 0 16px}.pv small{font:600 14px var(--body);color:var(--mute);margin-left:8px}
+.tot{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.tot .n{font:900 96px/.9 var(--head)}
+.tier{font:800 32px var(--head);text-transform:uppercase;color:var(--gold)}
+.bar{height:8px;background:#000;border:1px solid var(--line);border-radius:99px;overflow:hidden;margin:16px 0 8px}
+.bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.hint{font-size:14px;color:var(--mute)}
+.log{list-style:none;padding:0;margin:14px 0 0;max-height:130px;overflow:auto;font-size:14px;color:var(--mute)}
+.log li{display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid var(--line)}
+.ladder{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:20px}
+.rung{border:1px solid var(--line);border-radius:8px;padding:14px;transition:border-color .3s,background .3s}
+.rung b{font:800 22px var(--head);text-transform:uppercase;display:block}
+.rung span{font-size:13px;color:var(--mute)}
+.rung.on{border-color:var(--gold);background:var(--gold-d)}
+.rung.on b{color:var(--gold)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+td,th{padding:9px 0;border-top:1px solid var(--line);text-align:left}
+th{font-weight:600;color:var(--mute);border-top:0}
+td:last-child,th:last-child{text-align:right;font-weight:700}
+/* guild / app */
+.big{font:900 clamp(40px,7vw,80px)/.95 var(--head);text-transform:uppercase}
+.big em{font-style:normal;color:var(--gold)}
+footer{padding:36px 0 48px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--silver)}
+.hero h1,.tag,.hero .btns{animation:in .8s cubic-bezier(.2,.8,.2,1) both}
+.tag{animation-delay:.12s}.hero .btns{animation-delay:.22s}
+@keyframes in{from{opacity:0;transform:translateY(18px)}}
+@media(max-width:860px){
+.hero-row,.g2,.g3,.calc{grid-template-columns:1fr}
+.stmt{text-align:left}
+.ladder{grid-template-columns:repeat(2,1fr)}
+.stages{grid-template-columns:1fr}.stage,.stage:first-child,.stage:last-child{margin:-1px 0 0;border-radius:0}
+.stage:first-child{margin-top:0;border-radius:10px 10px 0 0}.stage:last-child{border-radius:0 0 10px 10px}
+section{padding:60px 0}.hero{padding-top:40px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.hero{position:relative;overflow:hidden}.hero .wrap{position:relative;z-index:1}
+.spot{position:absolute;inset:0;background:radial-gradient(520px circle at var(--sx,70%) var(--sy,30%),rgba(201,169,110,.16),transparent 60%);pointer-events:none;transition:background .15s}
+.hero h1 .o{animation:strk 6s ease-in-out infinite alternate}
+@keyframes strk{from{-webkit-text-stroke-color:#c6c9ce}to{-webkit-text-stroke-color:#c9a96e}}
+.mq{overflow:hidden;border-bottom:1px solid var(--line);padding:14px 0;white-space:nowrap;background:#0b0b0c}
+.mq div{display:inline-block;animation:mq 32s linear infinite;font:800 22px var(--head);text-transform:uppercase;color:var(--silver)}
+.mq:hover div{animation-play-state:paused}
+.mq span{margin:0 26px}.mq span::before{content:'◆';color:var(--gold);margin-right:52px;font-size:12px}
+@keyframes mq{to{transform:translateX(-50%)}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.stat{padding:32px 20px;border-left:1px solid var(--line)}.stat:first-child{border-left:0}
+.stat b{font:900 64px/1 var(--head);display:block}.stat span{color:var(--mute);font-size:14px}
+.panel{position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
+.panel::before{content:'';position:absolute;inset:0;background:radial-gradient(320px circle at var(--mx,50%) var(--my,0%),rgba(201,169,110,.12),transparent 60%);opacity:0;transition:opacity .25s;pointer-events:none}
+.panel:hover{border-color:#3a3a3f}.panel:hover::before{opacity:1}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:0}.kv div{padding:14px 0;border-top:1px solid var(--line)}.kv small{display:block;color:var(--mute);font-size:13px}.kv b{font-size:16px}
+.tw{overflow-x:auto}.tw table{min-width:520px}
+.tw td:last-child,.tw th:last-child,.tw td,.tw th{text-align:left}
+.tag2{display:inline-block;font-size:12px;font-weight:700;color:var(--gold);border:1px solid var(--gold);border-radius:99px;padding:2px 10px;margin-left:8px;vertical-align:middle;font-family:var(--body)}
+.maps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.map{border:1px solid var(--line);border-radius:8px;padding:34px 12px 12px;font:800 22px var(--head);text-transform:uppercase;background:linear-gradient(180deg,#0b0b0c,#18181a);transition:border-color .2s,transform .2s}.map:hover{border-color:var(--gold);transform:translateY(-4px)}
+details{border-top:1px solid var(--line);padding:14px 0}details summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between}details summary::after{content:'+';color:var(--gold);font-size:20px;line-height:1}details[open] summary::after{content:'–'}details p{color:var(--mute);margin:10px 0 0}
+.disc{font-size:12px;max-width:560px}
+@media(max-width:860px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0}.maps{grid-template-columns:repeat(2,1fr)}.kv{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+<a class="logo" href="#top">CARLO<b>ATHLETES</b></a>
+<div class="links"><a href="#matches">Matches</a><a href="#hub">Event Hub</a><a href="#arena">Power Ranking</a><a href="#guild">Guild</a><a href="#app">App</a></div>
+</div></nav>
+
+<header class="hero" id="top"><div class="spot" id="spot"></div><div class="wrap">
+<h1><span>Carlo</span><span class="o">Athletes</span></h1>
+<div class="hero-row">
+<div>
+<p class="tag">Beyond the ordinary, above the expected, built to stand apart.</p>
+<div class="btns">
+<a class="btn p" href="#arena">Enter the Arena</a>
+<a class="btn" href="#guild">Meet the Guild</a>
+<a class="btn g" href="#matches">Free Tournaments</a>
+</div>
+</div>
+<p class="stmt">Compete.<i>Connect.</i>Evolve.</p>
+</div>
+</div></header>
+<div class="mq" aria-hidden="true"><div><span>Free Fire</span><span>Free entry</span><span>Battle Royale</span><span>Clash Squad</span><span>Booyah power ranking</span><span>Szn1.esp!</span><span>Compete. Connect. Evolve.</span><span>Free Fire</span><span>Free entry</span><span>Battle Royale</span><span>Clash Squad</span><span>Booyah power ranking</span><span>Szn1.esp!</span><span>Compete. Connect. Evolve.</span></div></div>
+<div class="stats wrap"><div class="stat"><b data-c="0" data-p="₹">0</b><span>Entry fee</span></div><div class="stat"><b data-c="12">0</b><span>Squads per room</span></div><div class="stat"><b data-c="2">0</b><span>Game modes</span></div><div class="stat"><b data-c="6">0</b><span>Rank tiers</span></div></div>
+
+<section id="matches"><div class="wrap">
+<div class="sh"><h2>Matches &amp; Tournaments</h2><p>Free Fire tournaments run by CarloAthletes. Free to enter, with every result tracked in the Booyah Power Ranking.</p></div>
+
+<div class="tabs" role="tablist">
+<button role="tab" id="t-br" aria-selected="true" data-t="br">Battle Royale</button>
+<button role="tab" id="t-cs" aria-selected="false" data-t="cs">Clash Squad</button>
+</div>
+<div class="grid g2">
+<div class="panel" id="fmt"></div>
+<div class="panel">
+<h3>How to register</h3>
+<ol class="steps">
+<li><b>Follow</b> @carloatheletesofficial on Instagram for room announcements.</li>
+<li><b>Send</b> your team name and every player’s Free Fire ID when registration opens.</li>
+<li><b>Join</b> the custom room on time. Late entries are not accepted.</li>
+</ol>
+</div>
+</div>
+
+<div class="panel" style="margin-top:20px">
+<h3>Knockout format</h3>
+<p>Larger events run as a knockout. Exact slots and match counts are announced with each tournament.</p>
+<div class="stages">
+<div class="stage"><b>Quarter Finals</b><span>Top squads advance</span></div>
+<div class="stage"><b>Semi Finals</b><span>The field narrows</span></div>
+<div class="stage"><b>Grand Finals</b><span>One champion</span></div>
+</div>
+</div>
+
+<div class="grid g2" style="margin-top:20px">
+<div class="panel"><h3>Announcements</h3>
+<div class="empty"><b>Nothing scheduled yet</b>The next tournament will be posted here and on Instagram.</div></div>
+<div class="panel"><h3>Results &amp; winners</h3>
+<div class="empty"><b>No results yet</b>Winners appear here after the first match is played.</div></div>
+</div>
+</div></section>
+
+<section id="hub"><div class="wrap">
+<div class="sh"><h2>Event Hub</h2><p>Everything a player needs before match day, laid out like an official tournament page. Details are confirmed with each announcement.</p></div>
+<div class="grid g2">
+<div class="panel"><h3>Tournament info</h3><div class="kv">
+<div><small>Game</small><b>Garena Free Fire</b></div><div><small>Region</small><b>India</b></div>
+<div><small>Modes</small><b>Battle Royale, Clash Squad</b></div><div><small>Platform</small><b>Mobile</b></div>
+<div><small>Entry</small><b>Free</b></div><div><small>Slots</small><b>Up to 12 squads</b></div>
+<div><small>Prize pool</small><b>To be announced</b></div><div><small>Organiser</small><b>CarloAthletes</b></div></div></div>
+<div class="panel"><h3>Map pool</h3><p>Maps rotate per match. The order is shown in the room announcement.</p><div class="maps"><div class="map">Bermuda</div><div class="map">Purgatory</div><div class="map">Kalahari</div><div class="map">Alpine</div><div class="map">NeXTerra</div></div></div>
+</div>
+<div class="panel" style="margin-top:20px"><h3>Match schedule<span class="tag2">Times in IST</span></h3><div class="tw"><table>
+<tr><th>Stage</th><th>Mode</th><th>Matches</th><th>Date &amp; time</th></tr>
+<tr><td>Qualifiers</td><td>Battle Royale</td><td>To be announced</td><td>To be announced</td></tr>
+<tr><td>Quarter Finals</td><td>Battle Royale</td><td>To be announced</td><td>To be announced</td></tr>
+<tr><td>Semi Finals</td><td>Battle Royale</td><td>To be announced</td><td>To be announced</td></tr>
+<tr><td>Grand Finals</td><td>Battle Royale</td><td>To be announced</td><td>To be announced</td></tr>
+<tr><td>Clash Squad Cup</td><td>Clash Squad</td><td>To be announced</td><td>To be announced</td></tr></table></div></div>
+<div class="panel" style="margin-top:20px"><h3>Standings<span class="tag2">Sample data</span></h3><p>This is how live standings will look. Team names below are placeholders.</p><div class="tw"><table>
+<tr><th>#</th><th>Team</th><th>Booyah</th><th>Kills</th><th>Points</th></tr>
+<tr><td>1</td><td>Team Alpha</td><td>3</td><td>41</td><td>86</td></tr>
+<tr><td>2</td><td>Team Bravo</td><td>2</td><td>37</td><td>74</td></tr>
+<tr><td>3</td><td>Team Charlie</td><td>1</td><td>33</td><td>65</td></tr>
+<tr><td>4</td><td>Team Delta</td><td>1</td><td>28</td><td>57</td></tr>
+<tr><td>5</td><td>Team Echo</td><td>0</td><td>30</td><td>52</td></tr></table></div></div>
+<div class="panel" style="margin-top:20px"><h3>Rules &amp; FAQ</h3>
+<details><summary>Who can play?</summary><p>Any Free Fire player in India. Every squad needs valid player IDs registered before the deadline.</p></details>
+<details><summary>Fair play</summary><p>Hacks, exploits, teaming with other squads and unauthorised tools lead to immediate disqualification.</p></details>
+<details><summary>Room and timing</summary><p>Room ID and password are shared shortly before the match. Squads that are not in the room at start time cannot join late.</p></details>
+<details><summary>Roster changes</summary><p>Rosters are locked once registration closes. Substitutes must be declared at registration.</p></details>
+<details><summary>Disputes and penalties</summary><p>Send screenshots to the organisers right after the match. Organiser decisions are final.</p></details>
+<details><summary>How are winners decided?</summary><p>Total Booyah Power points across all matches. Ties are broken by Booyah count, then total kills.</p></details></div>
+</div></section>
+
+<section id="arena"><div class="wrap">
+<div class="sh"><h2>Booyah Power Ranking</h2><p>Every match earns points for placement and kills. Climb six tiers from Rookie to Nightmare. Try the calculator to see where you stand.</p></div>
+
+<div class="calc">
+<div class="panel">
+<h3>Points calculator</h3>
+<div class="row2">
+<div><label for="pl">Placement</label><select id="pl"></select></div>
+<div><label for="ki">Kills</label><input id="ki" type="number" min="0" value="0" inputmode="numeric"></div>
+</div>
+<div class="pv"><span id="pv">10</span><small>points for this match</small></div>
+<div class="btns"><button class="btn p" id="add">Add match</button><button class="btn" id="rst">Reset</button></div>
+<ul class="log" id="log"></ul>
+</div>
+<div class="panel">
+<h3>Your rank</h3>
+<div class="tot"><span class="n" id="tot">0</span><span class="tier" id="tier">Rookie</span></div>
+<div class="bar"><i id="bar"></i></div>
+<div class="hint" id="nxt"></div>
+<table style="margin-top:18px">
+<tr><th>Placement</th><th>Points</th></tr>
+<tr><td>1st (Booyah)</td><td>+10</td></tr>
+<tr><td>2nd</td><td>+8</td></tr>
+<tr><td>3rd</td><td>+6</td></tr>
+<tr><td>4th–5th</td><td>+4</td></tr>
+<tr><td>6th–10th</td><td>+2</td></tr>
+<tr><td>Each kill (max 10 per match)</td><td>+1</td></tr>
+</table>
+</div>
+</div>
+<div class="ladder" id="ladder"></div>
+</div></section>
+
+<section id="guild"><div class="wrap">
+<div class="grid g2" style="align-items:center">
+<div><p class="big">The guild<br><em>Szn1.esp!</em></p></div>
+<div class="panel">
+<h3>Our community</h3>
+<p>Szn1.esp! is the official CarloAthletes guild: players who train together, enter tournaments together and push each other up the ranking.</p>
+<p>Founded and led by <b style="color:var(--text)">YUVI</b>. Compete with the best, connect with the community and evolve your game.</p>
+<div class="btns" style="margin-top:18px"><a class="btn p" href="https://www.instagram.com/carloatheletesofficial" target="_blank" rel="noopener">Follow on Instagram</a></div>
+</div>
+</div>
+</div></section>
+
+<section id="app"><div class="wrap">
+<div class="panel" style="padding:44px 28px;text-align:center">
+<p class="big" style="margin-bottom:14px">Take the arena<br><em>with you</em></p>
+<p style="color:var(--mute);max-width:480px;margin:0 auto 22px">The CarloAthletes app is on the way: schedules, results and your Booyah rank in your pocket. Follow us to hear first when it launches.</p>
+<a class="btn g" href="https://www.instagram.com/carloatheletesofficial" target="_blank" rel="noopener">Get launch updates</a>
+</div>
+</div></section>
+
+<footer><div class="wrap">
+<span>© 2026 CARLOATHLETES. Owner: YUVI. Compete. Connect. Evolve.<br><span class="disc">CARLOATHLETES is an independent community organiser, not affiliated with or endorsed by Garena. Free Fire is a trademark of Garena.</span></span>
+<a href="https://www.instagram.com/carloatheletesofficial" target="_blank" rel="noopener">@carloatheletesofficial</a>
+</div></footer>
+
+<script>
+var F={br:'<h3>Battle Royale</h3><p>Squads drop into a custom room and fight to be the last one standing. Every match scores placement and kills.</p><dl><dt>Scoring</dt><dd>Booyah Power Ranking points</dd><dt>Format</dt><dd>Squad size, map and match count are confirmed per event.</dd></dl>',
+cs:'<h3>Clash Squad</h3><p>Fast 4v4 rounds with a team economy. Win the rounds, win the match.</p><dl><dt>Scoring</dt><dd>Match results feed your tournament standing.</dd><dt>Format</dt><dd>Round count and bracket are confirmed per event.</dd></dl>'};
+var fmt=document.getElementById('fmt');fmt.innerHTML=F.br;
+document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){
+document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});fmt.innerHTML=F[b.dataset.t]}});
+
+var T=[['Rookie',0,99],['Hunter',100,249],['Beast',250,499],['Darinda',500,899],['Phantom',900,1499],['Nightmare',1500,2499]];
+var $=function(i){return document.getElementById(i)},pl=$('pl'),ki=$('ki'),total=0,matches=[];
+for(var p=1;p<=12;p++){var o=document.createElement('option');o.value=p;o.textContent=p+(p==1?'st (Booyah)':p==2?'nd':p==3?'rd':'th');pl.appendChild(o)}
+function pp(p){return p==1?10:p==2?8:p==3?6:p<=5?4:p<=10?2:0}
+function cur(){var k=Math.min(Math.max(parseInt(ki.value)||0,0),10);return pp(+pl.value)+k}
+var lad=$('ladder');T.forEach(function(t){var d=document.createElement('div');d.className='rung';d.innerHTML='<b>'+t[0]+'</b><span>'+t[1].toLocaleString('en-IN')+'–'+t[2].toLocaleString('en-IN')+'</span>';lad.appendChild(d)});
+function draw(){
+$('pv').textContent=cur();$('tot').textContent=total;
+var i=0;T.forEach(function(t,j){if(total>=t[1])i=j});
+$('tier').textContent=T[i][0];
+[].forEach.call(lad.children,function(r,j){r.classList.toggle('on',j===i)});
+var n=T[i+1];
+if(n){var pct=(total-T[i][1])/(n[1]-T[i][1])*100;$('bar').style.width=pct+'%';$('nxt').textContent=(n[1]-total)+' more points to reach '+n[0]+'.'}
+else{$('bar').style.width='100%';$('nxt').textContent='Top tier reached. You are a Nightmare.'}
+$('log').innerHTML=matches.map(function(m,j){return '<li><span>Match '+(j+1)+': '+m.p+' place, '+m.k+' kills</span><b>+'+m.s+'</b></li>'}).reverse().join('');
+}
+pl.onchange=ki.oninput=draw;
+$('add').onclick=function(){var s=cur();matches.push({p:pl.options[pl.selectedIndex].text.split(' ')[0],k:Math.min(Math.max(parseInt(ki.value)||0,0),10),s:s});total+=s;draw()};
+$('rst').onclick=function(){total=0;matches=[];ki.value=0;pl.value=1;draw()};
+draw();
+/* effects */
+var sp=$('spot');window.addEventListener('pointermove',function(e){var r=sp.getBoundingClientRect();sp.style.setProperty('--sx',(e.clientX-r.left)+'px');sp.style.setProperty('--sy',(e.clientY-r.top)+'px')});
+document.querySelectorAll('.panel').forEach(function(p){p.addEventListener('pointermove',function(e){var r=p.getBoundingClientRect();p.style.setProperty('--mx',(e.clientX-r.left)+'px');p.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.sh,.panel,.rung,.stat,.map').forEach(function(el,i){el.classList.add('rv');el.style.transitionDelay=(i%4)*60+'ms';io.observe(el)});
+var co=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;co.unobserve(e.target);var b=e.target,to=+b.dataset.c,pre=b.dataset.p||'',t0=performance.now();(function f(t){var k=Math.min((t-t0)/1200,1);b.textContent=pre+Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(t0)})},{threshold:.6});
+document.querySelectorAll('[data-c]').forEach(function(b){co.observe(b)});
+</script>
+</body>
+</html>
