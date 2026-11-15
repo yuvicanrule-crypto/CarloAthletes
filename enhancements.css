@@ -470,3 +470,53 @@ body::before,body::after{content:none!important;display:none!important;backgroun
 .profile-strip p,.mode-card p,.empty-state p,.team-feature p,.rule-card p,
 .ca-card p,.ca-countdown small,.ca-accordion-panel,.ca-muted{color:#c5c5c5!important}
 .ca-section-head h2,.section-heading h2,.org-copy h2{color:#f5f5f5!important}
+
+
+/* CARLOATHLETES UPDATE: guided registration + premium dark interface */
+.main-nav .nav-link{
+  background:rgba(21,21,21,.94)!important;
+  color:#f1f1f1!important;
+  border:1px solid rgba(255,255,255,.16)!important;
+  box-shadow:0 5px 18px rgba(0,0,0,.22)!important;
+}
+.main-nav .nav-link:hover,.main-nav .nav-link.active{
+  background:#525252!important;
+  color:#fff!important;
+  border-color:rgba(255,255,255,.5)!important;
+}
+.topbar{
+  background:rgba(21,21,21,.94)!important;
+  color:#fff!important;
+  border-bottom:1px solid rgba(255,255,255,.16)!important;
+}
+.topbar .brand-lockup,.topbar .owner-tag,.topbar .brand-lockup small{color:#f4f4f4!important}
+.topbar .btn-ghost{color:#fff!important;border-color:#777!important}
+.profile-strip,.mode-card,.empty-state,.team-feature,.rule-card,.ca-card,.ca-countdown,.ca-accordion,.ca-privacy,.modal,.contact-panel,.notice-section{
+  background:linear-gradient(145deg,rgba(39,39,39,.97),rgba(18,18,18,.98))!important;
+  color:#f4f4f4!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  box-shadow:0 14px 36px rgba(0,0,0,.28)!important;
+  backdrop-filter:none!important;
+}
+.profile-strip p,.mode-card p,.empty-state p,.team-feature p,.rule-card p,.ca-card p,.ca-countdown small,.ca-accordion-panel,.ca-muted,.notice-section p,.contact-panel p{
+  color:#c2c2c2!important;
+}
+.ca-section-head h2,.section-heading h2,.org-copy h2{color:#f4f4f4}
+.ca-register-form{
+  margin-top:22px;padding:20px;border:1px solid rgba(255,255,255,.18);
+  border-radius:13px;background:linear-gradient(145deg,#292929,#151515);
+}
+.ca-register-heading h3{font:900 27px 'Barlow Condensed';margin:10px 0 4px;color:#fff}
+.ca-register-heading p,.ca-register-note{font-size:11px;line-height:1.7;color:#bdbdbd}
+.ca-register-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.ca-register-grid label{display:block;color:#e5e5e5;font-size:10px;font-weight:800;letter-spacing:.5px}
+.ca-register-grid input{
+  display:block;width:100%;margin-top:7px;padding:12px;border:1px solid #555;
+  border-radius:8px;background:#101010;color:#fff;outline:none;
+}
+.ca-register-grid input:focus{border-color:#c18aff;box-shadow:0 0 0 3px #a855f722}
+.ca-register-wide{grid-column:1/-1}
+.ca-register-note{margin:12px 0 0}
+.modal{max-height:88vh;overflow:auto}
+@media(max-width:600px){.ca-register-grid{grid-template-columns:1fr}.ca-register-wide{grid-column:auto}.ca-register-form{padding:15px}}
+@media(prefers-reduced-motion:reduce){.ca-register-form *{scroll-behavior:auto}}
