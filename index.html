@@ -160,6 +160,46 @@ section{position:relative}section:before{content:"";position:absolute;top:0;left
 @media(max-width:720px){nav .wrap{height:58px}.mobile-toggle{display:block}.links{position:absolute;top:calc(100% + 1px);left:0;right:0;padding:12px 20px 18px;background:rgba(5,5,8,.97);border-bottom:1px solid #342449;display:flex;flex-direction:column;gap:0;max-height:0;overflow:hidden;opacity:0;transform:translateY(-8px);transition:max-height .3s,opacity .25s,transform .25s}.links.open{max-height:360px;opacity:1;transform:none}.links a{padding:11px 0}.links a:after{display:none}.hero h1{font-size:clamp(66px,20vw,130px)}.cursor-glow{display:none}}
 @media(prefers-reduced-motion:reduce){#caLoader{display:none!important}.hero:after{animation:none}.hero h1 span{animation:none}.cursor-glow{display:none}.btn:before{display:none}}
 
+
+/* COMMAND-CENTRE NAVIGATION */
+body.ca-portal-mode{overflow:hidden}
+body.ca-portal-mode> :not(#caPortal):not(#caLoader):not(.cursor-glow){display:none!important}
+#caPortal{position:fixed;inset:0;z-index:9000;overflow:auto;background:#050507;color:#f4f1fb;display:grid;align-items:center;padding:clamp(22px,5vw,64px);isolation:isolate}
+#caPortal:before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(ellipse at 78% 18%,#5520a955,transparent 34%),radial-gradient(ellipse at 10% 88%,#172c5555,transparent 34%),linear-gradient(135deg,#07070b,#0b0812 55%,#050507)}
+#caPortal:after{content:"";position:absolute;inset:0;z-index:-1;opacity:.18;pointer-events:none;background-image:linear-gradient(#a78bfa12 1px,transparent 1px),linear-gradient(90deg,#a78bfa12 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent 95%)}
+.ca-portal-inner{width:min(1180px,100%);margin:auto}
+.ca-portal-top{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:clamp(26px,5vh,54px)}
+.ca-portal-brand{font:900 18px var(--head);letter-spacing:.12em}.ca-portal-brand b{color:#a78bfa}
+.ca-portal-status{font:700 10px var(--body);letter-spacing:.2em;color:#b9a7df;border:1px solid #6d4da766;padding:9px 12px;border-radius:99px}
+.ca-portal-title{font:900 clamp(52px,9vw,112px)/.82 var(--head);text-transform:uppercase;letter-spacing:-.035em;margin:0;max-width:850px}
+.ca-portal-title span{display:block;color:#a78bfa;text-shadow:0 0 34px #8b5cf655}
+.ca-portal-sub{color:#aaa2b7;max-width:560px;font-size:14px;line-height:1.8;margin:20px 0 30px}
+.ca-portal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ca-portal-card{position:relative;min-height:124px;text-align:left;color:#f4f1fb;background:linear-gradient(135deg,#171321eF,#0d0d13f5);border:1px solid #59447766;border-radius:12px;padding:20px;cursor:pointer;overflow:hidden;transform:translateY(22px);opacity:0;animation:caCardIn .7s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*75ms);transition:transform .35s,border-color .35s,box-shadow .35s}
+.ca-portal-card:before{content:"";position:absolute;width:170px;height:170px;right:-85px;top:-95px;border-radius:50%;background:#8b5cf6;filter:blur(60px);opacity:.14;transition:opacity .35s,transform .5s}
+.ca-portal-card:hover,.ca-portal-card:focus-visible{transform:translateY(-6px) scale(1.015);border-color:#a78bfa;box-shadow:0 18px 55px #6d28d933;outline:none}
+.ca-portal-card:hover:before{opacity:.42;transform:scale(1.35)}
+.ca-portal-card small{display:block;color:#a78bfa;font:700 10px var(--body);letter-spacing:.2em;margin-bottom:15px}
+.ca-portal-card strong{display:block;font:900 clamp(23px,3vw,34px)/.95 var(--head);text-transform:uppercase;letter-spacing:.02em}
+.ca-portal-card em{position:absolute;right:18px;bottom:15px;color:#c4b5fd;font-style:normal;font-size:23px;transition:transform .3s}
+.ca-portal-card:hover em{transform:translate(5px,-5px)}
+.ca-portal-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:22px;color:#777181;font:700 10px var(--body);letter-spacing:.14em}
+#caMotionToggle{background:#100d18;color:#c4b5fd;border:1px solid #493765;border-radius:99px;padding:9px 13px;font:700 10px var(--body);letter-spacing:.12em;cursor:pointer}
+body.ca-view-mode>header.hero,body.ca-view-mode>.mq,body.ca-view-mode>.stats,body.ca-view-mode>section:not(.ca-active-view),body.ca-view-mode>footer{display:none!important}
+body.ca-view-mode>nav{position:sticky;top:0;z-index:100;background:#08070df2;backdrop-filter:blur(18px)}
+body.ca-view-mode>section.ca-active-view{display:block;min-height:calc(100vh - 66px);animation:caSectionIn .72s cubic-bezier(.2,.8,.2,1) both}
+body.ca-view-mode>header.hero.ca-active-view{display:block!important}
+#caViewBar{position:fixed;z-index:1001;left:20px;bottom:20px;display:flex;align-items:center;gap:12px;padding:9px 14px 9px 9px;border:1px solid #7553a9aa;background:#0c0a13eF;backdrop-filter:blur(16px);border-radius:99px;box-shadow:0 12px 40px #0008;animation:caBarIn .5s ease both}
+#caViewBar button{border:0;border-radius:99px;background:#a78bfa;color:#09070e;padding:10px 15px;font:900 11px var(--body);letter-spacing:.08em;cursor:pointer}
+#caViewBar span{font:700 10px var(--body);letter-spacing:.16em;color:#ddd3f2;text-transform:uppercase}
+@keyframes caCardIn{to{opacity:1;transform:translateY(0)}}
+@keyframes caSectionIn{from{opacity:0;transform:translateY(26px) scale(.985);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes caBarIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+@media(max-width:760px){#caPortal{align-items:start;padding:22px 16px 30px}.ca-portal-top{margin-bottom:32px}.ca-portal-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.ca-portal-card{min-height:112px;padding:15px}.ca-portal-card strong{font-size:24px}.ca-portal-sub{margin:15px 0 22px}.ca-portal-bottom{align-items:flex-start;flex-direction:column}#caViewBar{left:12px;bottom:12px}}
+@media(max-width:420px){.ca-portal-grid{grid-template-columns:1fr 1fr}.ca-portal-card{min-height:100px}.ca-portal-card small{font-size:9px;margin-bottom:10px}.ca-portal-card strong{font-size:21px}}
+body.ca-motion-paused #caPortal *,body.ca-motion-paused #caViewBar{animation-play-state:paused!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){#caPortal *,#caViewBar{animation:none!important;transition:none!important}.ca-portal-card{opacity:1;transform:none}}
+
 </style>
 </head>
 <body>
@@ -367,6 +407,42 @@ document.querySelectorAll('[data-c]').forEach(function(b){co.observe(b)});
   if(canvas&&ctx){let w=0,h=0,dpr=1,pts=[];function resize(){const r=canvas.getBoundingClientRect();dpr=Math.min(devicePixelRatio||1,1.5);w=r.width;h=r.height;canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);pts=Array.from({length:Math.min(65,Math.floor(w/16))},()=>({x:Math.random()*w,y:Math.random()*h,v:.12+Math.random()*.35,r:.5+Math.random()*1.3,a:.12+Math.random()*.38}));}resize();addEventListener('resize',resize,{passive:true});function draw(){ctx.clearRect(0,0,w,h);pts.forEach(p=>{p.y-=p.v;if(p.y<0){p.y=h;p.x=Math.random()*w;}ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(190,165,255,'+p.a+')';ctx.fill();});requestAnimationFrame(draw);}draw();}
   const hero=document.querySelector('.hero');if(hero&&matchMedia('(hover:hover) and (pointer:fine)').matches){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;const h1=hero.querySelector('h1');if(h1)h1.style.transform='translate3d('+(x*9)+'px,'+(y*7)+'px,0)';});hero.addEventListener('pointerleave',()=>{const h1=hero.querySelector('h1');if(h1)h1.style.transform='';});}
  }
+})();
+
+
+/* CARLOATHLETES command-centre: click-to-enter sections, no long landing-page scroll */
+(function(){
+ const body=document.body;
+ const routes=[
+  {id:'matches',code:'01 / COMPETE',name:'MATCH HQ',desc:'Tournament formats, registration steps and match rules.'},
+  {id:'hub',code:'02 / DISCOVER',name:'EVENT HUB',desc:'Explore the event experience and featured updates.'},
+  {id:'arena',code:'03 / CLIMB',name:'POWER RANKING',desc:'Booyah points, rank tiers and your points calculator.'},
+  {id:'guild',code:'04 / CONNECT',name:'THE GUILD',desc:'Meet the Szn1.esp! community.'},
+  {id:'app',code:'05 / ACCESS',name:'APP ZONE',desc:'See what is planned for the CarloAthletes app.'},
+  {id:'top',code:'06 / IDENTITY',name:'ABOUT CA',desc:'The CarloAthletes vision and brand statement.'}
+ ];
+ const portal=document.createElement('main');portal.id='caPortal';portal.setAttribute('aria-label','CarloAthletes command centre');
+ portal.innerHTML='<div class="ca-portal-inner"><div class="ca-portal-top"><div class="ca-portal-brand">CARLO<b>ATHLETES</b></div><div class="ca-portal-status">● SYSTEM ONLINE</div></div><h1 class="ca-portal-title">CHOOSE YOUR <span>ARENA.</span></h1><p class="ca-portal-sub">Your destination. Your next move. Select a zone to enter the CarloAthletes experience — no endless homepage scrolling.</p><div class="ca-portal-grid" id="caPortalGrid"></div><div class="ca-portal-bottom"><span>COMPETE. CONNECT. EVOLVE.</span><button id="caMotionToggle" type="button">MOTION: ON · PAUSE</button></div></div>';
+ const grid=portal.querySelector('#caPortalGrid');
+ routes.forEach((r,i)=>{const b=document.createElement('button');b.type='button';b.className='ca-portal-card';b.style.setProperty('--i',i);b.innerHTML='<small>'+r.code+'</small><strong>'+r.name+'</strong><em>↗</em>';b.setAttribute('aria-label','Open '+r.name);b.addEventListener('click',()=>openRoute(r.id));grid.appendChild(b)});
+ body.appendChild(portal);
+ const bar=document.createElement('div');bar.id='caViewBar';bar.hidden=true;bar.innerHTML='<button type="button" id="caBackHome">← COMMAND</button><span id="caCurrentView">ZONE</span>';body.appendChild(bar);
+ const back=bar.querySelector('#caBackHome');
+ function openHome(){body.classList.remove('ca-view-mode');body.classList.add('ca-portal-mode');document.querySelectorAll('.ca-active-view').forEach(x=>x.classList.remove('ca-active-view'));bar.hidden=true;portal.hidden=false;window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}
+ function openRoute(id){
+  portal.hidden=true;body.classList.remove('ca-portal-mode');body.classList.add('ca-view-mode');
+  document.querySelectorAll('.ca-active-view').forEach(x=>x.classList.remove('ca-active-view'));
+  const target=document.getElementById(id);if(!target){openHome();return}
+  target.classList.add('ca-active-view');bar.hidden=false;
+  bar.querySelector('#caCurrentView').textContent=(routes.find(x=>x.id===id)||{}).name||'HOME';
+  window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+  document.querySelectorAll('#siteLinks a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id));
+ }
+ back.addEventListener('click',openHome);
+ document.getElementById('caMotionToggle').addEventListener('click',function(){const paused=body.classList.toggle('ca-motion-paused');this.textContent=paused?'MOTION: PAUSED · PLAY':'MOTION: ON · PAUSE'});
+ document.querySelectorAll('#siteLinks a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href').slice(1);if(routes.some(r=>r.id===id)){e.preventDefault();openRoute(id)}})});
+ document.querySelectorAll('a[href="#top"]').forEach(a=>{a.addEventListener('click',e=>{if(body.classList.contains('ca-view-mode')){e.preventDefault();openRoute('top')}else if(body.classList.contains('ca-portal-mode')){e.preventDefault();openHome()}})});
+ body.classList.add('ca-portal-mode');
 })();
 
 </script>
