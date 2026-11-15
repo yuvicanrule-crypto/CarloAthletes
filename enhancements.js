@@ -164,8 +164,8 @@
         <div class="ca-empty">No verified player results published yet.</div>
         <div class="ca-points-rules">
           <b>POINTS SYSTEM</b>
-          <span>Booyah / 1st place <strong>+10</strong></span>
-          <span>2nd place <strong>+8</strong></span>
+          <span>Booyah / 1st place <strong>+12</strong></span>
+          <span>2nd place <strong>+10</strong></span>
           <span>3rd place <strong>+6</strong></span>
           <span>4th–5th place <strong>+4</strong></span>
           <span>6th–10th place <strong>+2</strong></span>
