@@ -105,11 +105,11 @@ function openMatch(type){
     const note = $('caRegisterNote');
     try {
       await navigator.clipboard.writeText(message);
-      if(note) note.textContent = 'Registration message copied. Open Instagram, message @its.yuvi.btw and paste it. Your place is confirmed only after the organizer replies.';
+      if(note) note.textContent = 'Registration message copied. Open Instagram, message @carloatheletesofficial and paste it. Your place is confirmed only after the organizer replies.';
     } catch {
-      if(note) note.textContent = 'Copy is unavailable in this browser. Please send your IGN, UID and team details manually to @its.yuvi.btw. No registration has been submitted.';
+      if(note) note.textContent = 'Copy is unavailable in this browser. Please send your IGN, UID and team details manually to @carloatheletesofficial. No registration has been submitted.';
     }
-    window.open('https://www.instagram.com/its.yuvi.btw/','_blank','noopener');
+    window.open('https://www.instagram.com/carloatheletesofficial/','_blank','noopener');
   });
   $('matchModal').classList.remove('hidden');
 }
