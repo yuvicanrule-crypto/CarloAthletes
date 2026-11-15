@@ -73,6 +73,44 @@ function openMatch(type){
       <div class="detail-box"><small>SCHEDULE</small><strong>Ask organizer</strong></div>
     </div>
     <p class="modal-copy">Send your team name and the four players' Free Fire game names through Instagram DM. Wait for the organizer to confirm your team and match schedule.</p>`;
+  // Registration helper: prepares a message for the organizer; it does not submit or confirm an entry.
+  $('modalBody').insertAdjacentHTML('beforeend', `
+    <form class="ca-register-form" id="caRegisterForm">
+      <div class="ca-register-heading"><span class="ca-chip">QUICK REGISTRATION</span><h3>PLAYER DETAILS</h3><p>Complete your details to prepare an Instagram registration message.</p></div>
+      <div class="ca-register-grid">
+        <label>Display name<input name="displayName" maxlength="24" required value="${(currentUser?.displayName||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;')}"></label>
+        <label>Free Fire IGN<input name="ign" maxlength="24" required value="${(currentUser?.ign||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;')}"></label>
+        <label>Free Fire UID<input name="uid" inputmode="numeric" maxlength="20" required value="${(currentUser?.uid||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;')}"></label>
+        <label>Squad / Team name<input name="team" maxlength="30" placeholder="Your team name"></label>
+        ${br ? '' : '<label class="ca-register-wide">Teammates IGN (enter all 3, separated by commas)<input name="teammates" maxlength="120" placeholder="Player 2, Player 3, Player 4" required></label>'}
+      </div>
+      <button class="btn btn-primary full" type="submit">PREPARE INSTAGRAM MESSAGE ↗</button>
+      <p class="ca-register-note" id="caRegisterNote" aria-live="polite">Your details stay in this browser until you choose to send the message yourself. No slot is reserved automatically.</p>
+    </form>`);
+  const registerForm = $('caRegisterForm');
+  if(registerForm) registerForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    if(!registerForm.reportValidity()) return;
+    const data = new FormData(registerForm);
+    const lines = [
+      'CARLOATHLETES — MATCH REGISTRATION',
+      'Mode: ' + (br ? 'Battle Royale' : 'Clash Squad 4v4'),
+      'Display name: ' + data.get('displayName'),
+      'Free Fire IGN: ' + data.get('ign'),
+      'Free Fire UID: ' + data.get('uid'),
+      'Team: ' + (data.get('team') || 'Not provided'),
+      ...(!br ? ['Teammates: ' + data.get('teammates')] : [])
+    ];
+    const message = lines.join('\\n');
+    const note = $('caRegisterNote');
+    try {
+      await navigator.clipboard.writeText(message);
+      if(note) note.textContent = 'Registration message copied. Open Instagram, message @its.yuvi.btw and paste it. Your place is confirmed only after the organizer replies.';
+    } catch {
+      if(note) note.textContent = 'Copy is unavailable in this browser. Please send your IGN, UID and team details manually to @its.yuvi.btw. No registration has been submitted.';
+    }
+    window.open('https://www.instagram.com/its.yuvi.btw/','_blank','noopener');
+  });
   $('matchModal').classList.remove('hidden');
 }
 document.querySelectorAll('[data-open]').forEach(btn=>btn.addEventListener('click',()=>openMatch(btn.dataset.open)));
