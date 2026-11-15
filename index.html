@@ -273,8 +273,8 @@ section{position:relative}section:before{content:"";position:absolute;top:0;left
 <div class="hint" id="nxt"></div>
 <table style="margin-top:18px">
 <tr><th>Placement</th><th>Points</th></tr>
-<tr><td>1st (Booyah)</td><td>+10</td></tr>
-<tr><td>2nd</td><td>+8</td></tr>
+<tr><td>1st (Booyah)</td><td>+12</td></tr>
+<tr><td>2nd</td><td>+10</td></tr>
 <tr><td>3rd</td><td>+6</td></tr>
 <tr><td>4th–5th</td><td>+4</td></tr>
 <tr><td>6th–10th</td><td>+2</td></tr>
@@ -320,7 +320,7 @@ document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('ar
 var T=[['Rookie',0,99],['Hunter',100,249],['Beast',250,499],['Darinda',500,899],['Phantom',900,1499],['Nightmare',1500,2499],['Apex Legend',2500,Infinity]];
 var $=function(i){return document.getElementById(i)},pl=$('pl'),ki=$('ki'),total=0,matches=[];
 for(var p=1;p<=12;p++){var o=document.createElement('option');o.value=p;o.textContent=p+(p==1?'st (Booyah)':p==2?'nd':p==3?'rd':'th');pl.appendChild(o)}
-function pp(p){return p==1?10:p==2?8:p==3?6:p<=5?4:p<=10?2:0}
+function pp(p){return p==1?12:p==2?10:p==3?6:p<=5?4:p<=10?2:0}
 function cur(){var k=Math.min(Math.max(parseInt(ki.value)||0,0),10);return pp(+pl.value)+k}
 var lad=$('ladder');T.forEach(function(t){var d=document.createElement('div');d.className='rung';d.innerHTML='<b>'+t[0]+'</b><span>'+t[1].toLocaleString('en-IN')+'–'+t[2].toLocaleString('en-IN')+'</span>';lad.appendChild(d)});
 function draw(){
