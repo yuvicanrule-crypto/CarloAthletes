@@ -130,15 +130,46 @@ section{padding:60px 0}.hero{padding-top:40px}
 details{border-top:1px solid var(--line);padding:14px 0}details summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between}details summary::after{content:'+';color:var(--gold);font-size:20px;line-height:1}details[open] summary::after{content:'–'}details p{color:var(--mute);margin:10px 0 0}
 .disc{font-size:12px;max-width:560px}
 @media(max-width:860px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0}.maps{grid-template-columns:repeat(2,1fr)}.kv{grid-template-columns:1fr}}
+
+/* CARLOATHLETES cinematic interaction layer */
+#caLoader{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#050507;transition:opacity .65s ease,visibility .65s ease}
+#caLoader.done{opacity:0;visibility:hidden;pointer-events:none}
+.loader-mark{width:88px;height:88px;filter:drop-shadow(0 0 22px #8b5cf6)}
+.loader-mark path{fill:none;stroke:#c4b5fd;stroke-width:8;stroke-linecap:round;stroke-dasharray:520;stroke-dashoffset:520;animation:drawC 1.15s cubic-bezier(.65,0,.35,1) forwards}
+@keyframes drawC{to{stroke-dashoffset:0}}
+#energyCanvas{position:absolute;inset:0;width:100%;height:100%;opacity:.65;pointer-events:none}
+.hero .wrap{z-index:2}.hero .spot{z-index:1}
+.hero:after{content:"";position:absolute;inset:auto -15% -45% 30%;height:70%;background:radial-gradient(ellipse,rgba(124,58,237,.19),transparent 68%);filter:blur(18px);pointer-events:none;animation:heroGlow 8s ease-in-out infinite alternate}
+@keyframes heroGlow{to{transform:translate3d(-5%,-9%,0) scale(1.12);opacity:.65}}
+.hero h1 span{animation:heroWord .9s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 span:nth-child(2){animation-delay:.12s}
+@keyframes heroWord{from{opacity:0;transform:translate3d(0,34px,0);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
+.cursor-glow{position:fixed;left:0;top:0;width:260px;height:260px;border-radius:50%;pointer-events:none;z-index:8;background:radial-gradient(circle,rgba(124,58,237,.13),transparent 68%);transform:translate(-50%,-50%);opacity:0;transition:opacity .25s}
+@media(hover:hover) and (pointer:fine){body:hover .cursor-glow{opacity:1}}
+.links a{position:relative}.links a:after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:2px;background:#a78bfa;box-shadow:0 0 12px #8b5cf6;transition:right .25s}.links a:hover:after,.links a.active:after{right:0}.links a.active{color:#fff}
+.btn{position:relative;overflow:hidden;isolation:isolate;transition:transform .2s,border-color .2s,box-shadow .2s}.btn:before{content:"";position:absolute;inset:-2px;background:linear-gradient(110deg,transparent 25%,#ffffff30 48%,transparent 70%);transform:translateX(-130%);transition:transform .65s;z-index:-1}.btn:hover:before{transform:translateX(130%)}
+.btn.rippling:after{content:"";position:absolute;left:var(--rx,50%);top:var(--ry,50%);width:8px;height:8px;border-radius:50%;background:#fff8;transform:translate(-50%,-50%) scale(0);animation:ripple .55s ease-out}
+@keyframes ripple{to{transform:translate(-50%,-50%) scale(22);opacity:0}}
+.panel,.stat,.map,.rung{transform-style:preserve-3d;will-change:transform}
+.panel{border-color:rgba(167,139,250,.19);background:linear-gradient(145deg,rgba(20,20,29,.96),rgba(10,10,15,.96));box-shadow:0 14px 44px #0005}
+.panel:hover{box-shadow:0 18px 48px #5b21b633;border-color:#7650b6}
+.rung{position:relative;overflow:hidden}.rung:after{content:"";position:absolute;inset:0 auto 0 0;width:var(--fill,0%);background:linear-gradient(90deg,#7c3aed22,#a78bfa0a);pointer-events:none;transition:width .7s}.rung.on{box-shadow:0 0 24px #7c3aed20}
+section{position:relative}section:before{content:"";position:absolute;top:0;left:50%;width:min(78%,920px);height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,#8b5cf666,transparent)}
+.mobile-toggle{display:none;background:#111019;border:1px solid #44345f;color:#fff;border-radius:7px;padding:8px 11px;font-size:20px;line-height:1;cursor:pointer}
+@media(max-width:720px){nav .wrap{height:58px}.mobile-toggle{display:block}.links{position:absolute;top:calc(100% + 1px);left:0;right:0;padding:12px 20px 18px;background:rgba(5,5,8,.97);border-bottom:1px solid #342449;display:flex;flex-direction:column;gap:0;max-height:0;overflow:hidden;opacity:0;transform:translateY(-8px);transition:max-height .3s,opacity .25s,transform .25s}.links.open{max-height:360px;opacity:1;transform:none}.links a{padding:11px 0}.links a:after{display:none}.hero h1{font-size:clamp(66px,20vw,130px)}.cursor-glow{display:none}}
+@media(prefers-reduced-motion:reduce){#caLoader{display:none!important}.hero:after{animation:none}.hero h1 span{animation:none}.cursor-glow{display:none}.btn:before{display:none}}
+
 </style>
 </head>
 <body>
+<div id="caLoader" aria-label="Loading CarloAthletes"><svg class="loader-mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M76 23 A37 37 0 1 0 76 77"/></svg></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 <nav><div class="wrap">
 <a class="logo" href="#top">CARLO<b>ATHLETES</b></a>
-<div class="links"><a href="#matches">Matches</a><a href="#hub">Event Hub</a><a href="#arena">Power Ranking</a><a href="#guild">Guild</a><a href="#app">App</a></div>
+<button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation" aria-expanded="false">☰</button><div class="links" id="siteLinks"><a href="#matches">Matches</a><a href="#hub">Event Hub</a><a href="#arena">Power Ranking</a><a href="#guild">Guild</a><a href="#app">App</a></div>
 </div></nav>
 
-<header class="hero" id="top"><div class="spot" id="spot"></div><div class="wrap">
+<header class="hero" id="top"><canvas id="energyCanvas" aria-hidden="true"></canvas><div class="spot" id="spot"></div><div class="wrap">
 <h1><span>Carlo</span><span class="o">Athletes</span></h1>
 <div class="hero-row">
 <div>
@@ -153,7 +184,7 @@ details{border-top:1px solid var(--line);padding:14px 0}details summary{cursor:p
 </div>
 </div></header>
 <div class="mq" aria-hidden="true"><div><span>Free Fire</span><span>Free entry</span><span>Battle Royale</span><span>Clash Squad</span><span>Booyah power ranking</span><span>Szn1.esp!</span><span>Compete. Connect. Evolve.</span><span>Free Fire</span><span>Free entry</span><span>Battle Royale</span><span>Clash Squad</span><span>Booyah power ranking</span><span>Szn1.esp!</span><span>Compete. Connect. Evolve.</span></div></div>
-<div class="stats wrap"><div class="stat"><b data-c="0" data-p="₹">0</b><span>Entry fee</span></div><div class="stat"><b data-c="12">0</b><span>Squads per room</span></div><div class="stat"><b data-c="2">0</b><span>Game modes</span></div><div class="stat"><b data-c="6">0</b><span>Rank tiers</span></div></div>
+<div class="stats wrap"><div class="stat"><b data-c="0" data-p="₹">0</b><span>Entry fee</span></div><div class="stat"><b data-c="1">0</b><span>Official guild</span></div><div class="stat"><b data-c="2">0</b><span>Game modes</span></div><div class="stat"><b data-c="7">0</b><span>Rank tiers</span></div></div>
 
 <section id="matches"><div class="wrap">
 <div class="sh"><h2>Matches &amp; Tournaments</h2><p>Free Fire tournaments run by CarloAthletes. Free to enter, with every result tracked in the Booyah Power Ranking.</p></div>
@@ -209,13 +240,7 @@ details{border-top:1px solid var(--line);padding:14px 0}details summary{cursor:p
 <tr><td>Semi Finals</td><td>Battle Royale</td><td>To be announced</td><td>To be announced</td></tr>
 <tr><td>Grand Finals</td><td>Battle Royale</td><td>To be announced</td><td>To be announced</td></tr>
 <tr><td>Clash Squad Cup</td><td>Clash Squad</td><td>To be announced</td><td>To be announced</td></tr></table></div></div>
-<div class="panel" style="margin-top:20px"><h3>Standings<span class="tag2">Sample data</span></h3><p>This is how live standings will look. Team names below are placeholders.</p><div class="tw"><table>
-<tr><th>#</th><th>Team</th><th>Booyah</th><th>Kills</th><th>Points</th></tr>
-<tr><td>1</td><td>Team Alpha</td><td>3</td><td>41</td><td>86</td></tr>
-<tr><td>2</td><td>Team Bravo</td><td>2</td><td>37</td><td>74</td></tr>
-<tr><td>3</td><td>Team Charlie</td><td>1</td><td>33</td><td>65</td></tr>
-<tr><td>4</td><td>Team Delta</td><td>1</td><td>28</td><td>57</td></tr>
-<tr><td>5</td><td>Team Echo</td><td>0</td><td>30</td><td>52</td></tr></table></div></div>
+<div class="panel" style="margin-top:20px"><h3>Official standings<span class="tag2">Verified results only</span></h3><div class="empty"><b>Leaderboard awaiting results</b>Official team standings will appear here after match results are checked and published. No sample scores or invented rankings.</div></div>
 <div class="panel" style="margin-top:20px"><h3>Rules &amp; FAQ</h3>
 <details><summary>Who can play?</summary><p>Any Free Fire player in India. Every squad needs valid player IDs registered before the deadline.</p></details>
 <details><summary>Fair play</summary><p>Hacks, exploits, teaming with other squads and unauthorised tools lead to immediate disqualification.</p></details>
@@ -226,7 +251,7 @@ details{border-top:1px solid var(--line);padding:14px 0}details summary{cursor:p
 </div></section>
 
 <section id="arena"><div class="wrap">
-<div class="sh"><h2>Booyah Power Ranking</h2><p>Every match earns points for placement and kills. Climb six tiers from Rookie to Nightmare. Try the calculator to see where you stand.</p></div>
+<div class="sh"><h2>Booyah Power Ranking</h2><p>Every match earns points for placement and kills. Climb seven tiers from Rookie to Apex Legend. Try the calculator to see where you stand.</p></div>
 
 <div class="calc">
 <div class="panel">
@@ -290,7 +315,7 @@ var fmt=document.getElementById('fmt');fmt.innerHTML=F.br;
 document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){
 document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});fmt.innerHTML=F[b.dataset.t]}});
 
-var T=[['Rookie',0,99],['Hunter',100,249],['Beast',250,499],['Darinda',500,899],['Phantom',900,1499],['Nightmare',1500,2499]];
+var T=[['Rookie',0,99],['Hunter',100,249],['Beast',250,499],['Darinda',500,899],['Phantom',900,1499],['Nightmare',1500,2499],['Apex Legend',2500,Infinity]];
 var $=function(i){return document.getElementById(i)},pl=$('pl'),ki=$('ki'),total=0,matches=[];
 for(var p=1;p<=12;p++){var o=document.createElement('option');o.value=p;o.textContent=p+(p==1?'st (Booyah)':p==2?'nd':p==3?'rd':'th');pl.appendChild(o)}
 function pp(p){return p==1?10:p==2?8:p==3?6:p<=5?4:p<=10?2:0}
@@ -303,7 +328,7 @@ $('tier').textContent=T[i][0];
 [].forEach.call(lad.children,function(r,j){r.classList.toggle('on',j===i)});
 var n=T[i+1];
 if(n){var pct=(total-T[i][1])/(n[1]-T[i][1])*100;$('bar').style.width=pct+'%';$('nxt').textContent=(n[1]-total)+' more points to reach '+n[0]+'.'}
-else{$('bar').style.width='100%';$('nxt').textContent='Top tier reached. You are a Nightmare.'}
+else{$('bar').style.width='100%';$('nxt').textContent='Top tier reached. You are an Apex Legend.'}
 $('log').innerHTML=matches.map(function(m,j){return '<li><span>Match '+(j+1)+': '+m.p+' place, '+m.k+' kills</span><b>+'+m.s+'</b></li>'}).reverse().join('');
 }
 pl.onchange=ki.oninput=draw;
@@ -317,6 +342,31 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInter
 document.querySelectorAll('.sh,.panel,.rung,.stat,.map').forEach(function(el,i){el.classList.add('rv');el.style.transitionDelay=(i%4)*60+'ms';io.observe(el)});
 var co=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;co.unobserve(e.target);var b=e.target,to=+b.dataset.c,pre=b.dataset.p||'',t0=performance.now();(function f(t){var k=Math.min((t-t0)/1200,1);b.textContent=pre+Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(t0)})},{threshold:.6});
 document.querySelectorAll('[data-c]').forEach(function(b){co.observe(b)});
+
+/* cinematic motion, accessible navigation and pointer interactions */
+(function(){
+ const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const loader=document.getElementById('caLoader');
+ if(loader){if(reduce)loader.classList.add('done');else window.addEventListener('load',()=>setTimeout(()=>loader.classList.add('done'),900));}
+ const toggle=document.getElementById('mobileToggle'),links=document.getElementById('siteLinks');
+ if(toggle&&links){toggle.addEventListener('click',()=>{const open=links.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'×':'☰';});links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰';}));}
+ const glow=document.getElementById('cursorGlow');
+ if(glow&&!reduce&&matchMedia('(hover:hover) and (pointer:fine)').matches){let x=0,y=0,tx=0,ty=0;addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;glow.style.left=tx+'px';glow.style.top=ty+'px';},{passive:true});}
+ if(!reduce){
+  document.querySelectorAll('.panel,.map,.stat').forEach(el=>{
+   el.addEventListener('pointermove',e=>{if(!matchMedia('(hover:hover) and (pointer:fine)').matches)return;const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform='perspective(900px) rotateX('+(-y*3)+'deg) rotateY('+(x*3)+'deg) translateY(-2px)';});
+   el.addEventListener('pointerleave',()=>{el.style.transform='';});
+  });
+  document.querySelectorAll('.btn').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform='translate3d('+((e.clientX-r.left-r.width/2)*.07)+'px,'+((e.clientY-r.top-r.height/2)*.12)+'px,0)';});b.addEventListener('pointerleave',()=>b.style.transform='');b.addEventListener('click',e=>{const r=b.getBoundingClientRect();b.style.setProperty('--rx',(e.clientX-r.left)+'px');b.style.setProperty('--ry',(e.clientY-r.top)+'px');b.classList.remove('rippling');void b.offsetWidth;b.classList.add('rippling');});});
+  }
+  const navLinks=[...document.querySelectorAll('.links a[href^="#"]')],targets=navLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if('IntersectionObserver'in window){const navObs=new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id));}}),{rootMargin:'-30% 0px -60% 0px'});targets.forEach(t=>navObs.observe(t));}
+  const canvas=document.getElementById('energyCanvas'),ctx=canvas&&canvas.getContext('2d');
+  if(canvas&&ctx){let w=0,h=0,dpr=1,pts=[];function resize(){const r=canvas.getBoundingClientRect();dpr=Math.min(devicePixelRatio||1,1.5);w=r.width;h=r.height;canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);pts=Array.from({length:Math.min(65,Math.floor(w/16))},()=>({x:Math.random()*w,y:Math.random()*h,v:.12+Math.random()*.35,r:.5+Math.random()*1.3,a:.12+Math.random()*.38}));}resize();addEventListener('resize',resize,{passive:true});function draw(){ctx.clearRect(0,0,w,h);pts.forEach(p=>{p.y-=p.v;if(p.y<0){p.y=h;p.x=Math.random()*w;}ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(190,165,255,'+p.a+')';ctx.fill();});requestAnimationFrame(draw);}draw();}
+  const hero=document.querySelector('.hero');if(hero&&matchMedia('(hover:hover) and (pointer:fine)').matches){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;const h1=hero.querySelector('h1');if(h1)h1.style.transform='translate3d('+(x*9)+'px,'+(y*7)+'px,0)';});hero.addEventListener('pointerleave',()=>{const h1=hero.querySelector('h1');if(h1)h1.style.transform='';});}
+ }
+})();
+
 </script>
 </body>
 </html>
