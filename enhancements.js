@@ -70,7 +70,7 @@
     <div class="ca-section-head"><div class="eyebrow">COMPETE WITH INTEGRITY</div><h2>TOURNAMENT <span>RULEBOOK.</span></h2></div>
     <div class="ca-accordion"><button type="button" aria-expanded="false">MAP &amp; GAME MODE <span>＋</span></button><div class="ca-accordion-panel">The map, mode and match settings will be specified in each official event announcement. Follow the in-game and organizer instructions.</div></div>
     <div class="ca-accordion"><button type="button" aria-expanded="false">FAIR PLAY &amp; CONDUCT <span>＋</span></button><div class="ca-accordion-panel">Cheats, exploits, harassment and abusive conduct are not permitted. Treat every participant and organizer respectfully.</div></div>
-    <div class="ca-accordion"><button type="button" aria-expanded="false">DISQUALIFICATION &amp; DISPUTES <span>＋</span></button><div class="ca-accordion-panel">Any event-specific disqualification process and dispute deadline must be published by the organizer before that event begins. For rule clarifications, disputes or confirmation, contact the organizer on Instagram: <a href="https://www.instagram.com/its.yuvi.btw/" target="_blank" rel="noopener">@its.yuvi.btw</a>.</div></div>
+    <div class="ca-accordion"><button type="button" aria-expanded="false">DISQUALIFICATION &amp; DISPUTES <span>＋</span></button><div class="ca-accordion-panel">Any event-specific disqualification process and dispute deadline must be published by the organizer before that event begins. For rule clarifications, disputes or confirmation, contact the organizer on Instagram: <a href="https://www.instagram.com/carloatheletesofficial/" target="_blank" rel="noopener">@carloatheletesofficial</a>.</div></div>
   </section>
   <section id="caGallery" class="extra-section section">
     <div class="ca-section-head"><div class="eyebrow">COMMUNITY MOMENTS</div><h2>HIGHLIGHTS &amp; <span>GALLERY.</span></h2></div>
@@ -94,13 +94,13 @@
   </section>
   <section id="caFaq" class="extra-section section">
     <div class="ca-section-head"><div class="eyebrow">QUICK ANSWERS</div><h2>FREQUENTLY ASKED <span>QUESTIONS.</span></h2></div>
-    <div class="ca-accordion"><button type="button" aria-expanded="false">How do I join a match? <span>＋</span></button><div class="ca-accordion-panel">Contact @its.yuvi.btw on Instagram with your Free Fire IGN, UID and squad details. Wait for organizer confirmation.</div></div>
+    <div class="ca-accordion"><button type="button" aria-expanded="false">How do I join a match? <span>＋</span></button><div class="ca-accordion-panel">Contact @carloatheletesofficial on Instagram with your Free Fire IGN, UID and squad details. Wait for organizer confirmation.</div></div>
     <div class="ca-accordion"><button type="button" aria-expanded="false">Does clicking Instagram confirm my slot? <span>＋</span></button><div class="ca-accordion-panel">No. A slot is confirmed only when the organizer replies and confirms your entry.</div></div>
     <div class="ca-accordion"><button type="button" aria-expanded="false">Where will room details appear? <span>＋</span></button><div class="ca-accordion-panel">For the existing BR schedule, room details are scheduled for 4:25 PM IST. Check the organizer's official update for confirmation.</div></div>
   </section>
   <section id="caCommunity" class="extra-section section">
     <div class="ca-section-head"><div class="eyebrow">JOIN THE COMMUNITY</div><h2>STAY <span>CONNECTED.</span></h2></div>
-    <div class="ca-socials"><a href="https://www.instagram.com/its.yuvi.btw/" target="_blank" rel="noopener">INSTAGRAM ↗</a></div>
+    <div class="ca-socials"><a href="https://www.instagram.com/carloatheletesofficial/" target="_blank" rel="noopener">INSTAGRAM ↗</a></div>
     <p class="ca-muted">Discord, WhatsApp and YouTube links can be added when official community channels are provided.</p>
   </section>
   <section id="caContact" class="extra-section section">
@@ -143,7 +143,7 @@
   const search=$('caSearch');if(search)search.addEventListener('input',()=>{const row=$('caLeaderboard').querySelector('tr');if(row)row.style.display=row.textContent.toLowerCase().includes(search.value.toLowerCase())?'':'none';});
 
   // NEW: Frontend-only validation; no personal data is sent or stored
-  const interest=$('caInterestForm');if(interest)interest.addEventListener('submit',e=>{e.preventDefault();if(!interest.reportValidity())return;notify('Form validated in preview only. Your entry has NOT been submitted or confirmed. Contact @its.yuvi.btw.');interest.reset();});
+  const interest=$('caInterestForm');if(interest)interest.addEventListener('submit',e=>{e.preventDefault();if(!interest.reportValidity())return;notify('Form validated in preview only. Your entry has NOT been submitted or confirmed. Contact @carloatheletesofficial.');interest.reset();});
   const contact=$('caContactForm');if(contact)contact.addEventListener('submit',e=>{e.preventDefault();if(!contact.reportValidity())return;notify('Message checked in preview only. Nothing was sent. Please contact the organizer on Instagram.');contact.reset();});
 
   // Privacy banner removed: no analytics or tracking cookies are installed.
