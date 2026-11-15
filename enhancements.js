@@ -136,9 +136,7 @@
     toggle.addEventListener('click',()=>{const open=nav.classList.toggle('ca-nav-open');toggle.setAttribute('aria-expanded',String(open));});
     const style=document.createElement('style');style.textContent='.ca-mobile-toggle{display:none}@media(max-width:650px){.ca-mobile-toggle{display:inline-flex}.main-nav:not(.ca-nav-open){display:none!important}.main-nav.ca-nav-open{display:flex!important;flex-direction:column;align-items:flex-start;max-height:55vh;overflow:auto}}';document.head.append(style);
   }
-  const theme=document.createElement('button');theme.className='btn btn-ghost small';theme.type='button';theme.textContent='LIGHT MODE';theme.setAttribute('aria-label','Toggle light mode');
-  const actions=app.querySelector('.top-actions');if(actions)actions.prepend(theme);
-  theme.addEventListener('click',()=>{document.body.classList.toggle('ca-light');theme.textContent=document.body.classList.contains('ca-light')?'DARK MODE':'LIGHT MODE';});
+  // Premium dark-only presentation: no light-mode toggle.
   app.querySelectorAll('.ca-accordion button').forEach(button=>button.addEventListener('click',()=>{const box=button.parentElement;const open=box.classList.toggle('open');button.setAttribute('aria-expanded',String(open));const mark=button.querySelector('span');if(mark)mark.textContent=open?'−':'＋';}));
 
   // NEW: Searchable empty leaderboard, ready for verified records later
